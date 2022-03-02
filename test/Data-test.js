@@ -49,13 +49,13 @@ const testData = {
       "suggestedActivities": []
     },
     {
-      "id": 3,
-      "userID": 3,
-      "destinationID": 22,
-      "travelers": 4,
-      "date": "2022/05/22",
-      "duration": 17,
-      "status": "approved",
+      "id": 83,
+      "userID": 47,
+      "destinationID": 26,
+      "travelers": 1,
+      "date": "2020/05/06",
+      "duration": 11,
+      "status": "pending",
       "suggestedActivities": []
     },
     {
