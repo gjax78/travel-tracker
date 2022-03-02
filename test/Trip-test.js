@@ -28,5 +28,37 @@ describe('Trip', () => {
     expect(trip3).to.be.an.instanceof(Trip);
   })
 
+  it('should have an id', () => {
+    expect(trip3.id).to.equal(83);
+  })
+
+  it('should have a user that booked the trip', () => {
+    expect(trip3.userId).to.equal(47);
+  })
+
+  it('should have a destination id', () => {
+    expect(trip1.destinationId).to.equal(49);
+  })
+
+  it('should state how many travelers there are', () => {
+    expect(trip4.travelers).to.equal(2);
+  })
+
+  it('should have a starting date', () => {
+    expect(trip4.date).to.equal("2022/02/25");
+  })
+
+  it('should have a duration', () => {
+    expect(trip3.duration).to.equal(11);
+  })
+
+  it('should have a status', () => {
+    expect(trip3.status).to.equal("pending");
+    expect(trip4.status).to.equal("approved");
+  })
+
+  it('should have a list of suggested activities', () => {
+    expect(trip3.suggestedActivities).to.eql([]);
+  })
 
 });
