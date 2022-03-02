@@ -1,11 +1,11 @@
 class Destination {
-  constructor(location) {
-    this.id = location.id
-    this.name = location.destination
-    this.lodging = location.estimatedLodgingCostPerDay
-    this.flights = location.estimatedFlightCostPerPerson
-    this.image = location.image
-    this.alt = location.alt || 'beautiful travel destination'
+  constructor(locationRawData) {
+    this.id = locationRawData.id
+    this.name = locationRawData.destination
+    this.lodging = locationRawData.estimatedLodgingCostPerDay
+    this.flights = locationRawData.estimatedFlightCostPerPerson
+    this.image = locationRawData.image
+    this.alt = locationRawData.alt || 'beautiful travel destination'
   }
 }
 
