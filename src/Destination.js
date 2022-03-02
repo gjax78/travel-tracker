@@ -5,7 +5,7 @@ class Destination {
     this.lodging = locationRawData.estimatedLodgingCostPerDay
     this.flights = locationRawData.estimatedFlightCostPerPerson
     this.image = locationRawData.image
-    this.alt = locationRawData.alt || 'beautiful travel destination'
+    this.alt = locationRawData.alt
   }
 }
 
