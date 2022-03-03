@@ -10,4 +10,4 @@ const fetchData = (extension) => {
 // }
 
 
-export {fetchData};
+export default fetchData;
