@@ -9,17 +9,49 @@ import Trip from './Trip';
 
 //-----------------------functions ---------------//
 
+const generateNewTraveler = (travelerRawData) => {
+  let currentTraveler = new Traveler(travelerRawData)
+  return currentTraveler
+}
+
+const findTravelerTrips = (tripRawData) => {
+  let newTrip = new Trip(tripRawData)
+}
+
+const generateTripDestinations = (destinationRawData) => {
+  let newDestination = new Destination(destinationRawData)
+}
+
 const renderPage = () => {
-  Promise.all([fetchData('travelers'), fetchData('trips'), fetchData('destinations')])
+  let travelerPromise = fetchData('travelers')
+  let tripPromise = fetchData('trips')
+  let destinationPromise = fetchData('destinations')
+  Promise.all([travelerPromise, tripPromise, destinationPromise])
   .then(values => {
-    //invoke a function that does the instantiations (initialized user data)
+    generateNewTraveler(values[0])
+    findTravelerTrips(values[1])
+    generateTripDestinations(values[2])
+    // console.log(values[0].travelers[0])
   })
 }
 
+renderPage()
 // do fetch
 // do promise.all
 //create domUpdates folder
 //display user's trips
-
-
 //separate function that calls travelers to do my fetch (based on user id)
+
+//
+// const generateNewTraveler = (travelerRawData) => {
+//   let currentTraveler = new Traveler(travelerRawData)
+//   console.log(travelerRawData)
+// }
+//
+// const findTravelerTrips = (tripRawData) => {
+//   let newTrip = new Trip(tripRawData)
+// }
+//
+// const generateTripDestinations = (destinationRawData) => {
+//   let newDestination = new Destination(destinationRawData)
+// }
