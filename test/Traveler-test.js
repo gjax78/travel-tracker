@@ -12,16 +12,27 @@ describe('Traveler', () => {
   let traveler4;
   let traveler5;
   let travelerData;
+  let tripsData;
 
-  function generateTravelerTrips(traveler) {
-    travelerData.forEach(trip => {
-      let newTrip = new Trip(trip)
-      traveler.travelerAllTrips(newTrip)
-    })
-  }
+  // function generateTravelerTrips(traveler) {
+  //   travelerData.forEach(trip => {
+  //     let newTrip = new Trip(trip)
+  //     traveler.travelerAllTrips(trip)
+  //   })
+  // }
+
+  // const generateTravelerTrips = (traveler) => {
+  //   testData.trips.forEach(trip => {
+  //     traveler.travelerAllTrips(trip)
+  //     // console.log(traveler.trips)
+  //   })
+  //   // console.log(traveler)
+  // }
+
 
   beforeEach(() => {
     travelerData = testData.travelers;
+    tripsData = testData.trips
     traveler1 = new Traveler(travelerData[0]);
     traveler2 = new Traveler(travelerData[1]);
     traveler3 = new Traveler(travelerData[2]);
@@ -53,19 +64,8 @@ describe('Traveler', () => {
     expect(traveler2.trips).to.eql([]);
   })
 
-  it ('should return all trips', () => {
-    generateTravelerTrips(traveler1)
-    console.log(traveler1)
-    expect(traveler1.trips[0]).to.deep.equal({
-      "id": 117,
-      "userId": 1,
-      "destinationId": 28,
-      "travelers": 3,
-      "date": "2021/01/09",
-      "duration": 15,
-      "status": "approved",
-      "suggestedActivities": []
-    })
-
+  it ('should return all trips for one traveler', () => {
+    traveler1.travelerAllTrips(tripsData)
+    expect(traveler1.trips).to.have.lengthOf(3)
   })
 });
