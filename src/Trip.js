@@ -8,6 +8,7 @@ class Trip {
     this.duration = tripRawData.duration
     this.status = tripRawData.status
     this.suggestedActivities = tripRawData.suggestedActivities
+    this.destination = {}
   }
 }
 
