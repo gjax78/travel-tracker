@@ -1,6 +1,7 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Traveler from '../src/Traveler';
+import Trip from '../src/Trip';
 import testData from './Data-test';
 
 
@@ -11,6 +12,13 @@ describe('Traveler', () => {
   let traveler4;
   let traveler5;
   let travelerData;
+
+  function generateTravelerTrips(traveler) {
+    travelerData.forEach(trip => {
+      let newTrip = new Trip(trip)
+      traveler.travelerAllTrips(newTrip)
+    })
+  }
 
   beforeEach(() => {
     travelerData = testData.travelers;
@@ -43,5 +51,21 @@ describe('Traveler', () => {
 
   it('should hold all past, present, upcoming, and pending trips', () => {
     expect(traveler2.trips).to.eql([]);
+  })
+
+  it ('should return all trips', () => {
+    generateTravelerTrips(traveler1)
+    console.log(traveler1)
+    expect(traveler1.trips[0]).to.deep.equal({
+      "id": 117,
+      "userId": 1,
+      "destinationId": 28,
+      "travelers": 3,
+      "date": "2021/01/09",
+      "duration": 15,
+      "status": "approved",
+      "suggestedActivities": []
+    })
+
   })
 });
