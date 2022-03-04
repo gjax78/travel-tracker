@@ -32,14 +32,14 @@ const generateNewTraveler = (travelerRawData) => {
 //generating the destinations by bringing in the trips from the api
 //the tripRawData is the entire API information
 const generateTravelerTrips = (tripRawData) => {
-  tripRawData.trips.forEach(trip => {
+  // tripRawData.trips.forEach(trip => {
     // console.log(trip)
     // let tripObject = new Trip(trip)
     // allTrips.push(trip)
-    currentTraveler.travelerAllTrips(trip)
-  })
+    console.log(tripRawData)
+    currentTraveler.travelerAllTrips(tripRawData.trips)
+  // })
   console.log(currentTraveler)
-  domUpdates.updateTrips(currentTraveler.trips)
   console.log(currentTraveler.trips)
 }
 
@@ -49,6 +49,7 @@ const generateTripDestinations = (destinationRawData) => {
   destinationRawData.destinations.forEach(destination => {
     // let newDestination = new Destination(destination)
     currentTraveler.getDestinations(destination)
+    domUpdates.updateTrips(currentTraveler.trips)
   })
   console.log(currentTraveler.trips)
 
@@ -65,6 +66,7 @@ const renderPage = () => {
     generateNewTraveler(values[0])
     generateTravelerTrips(values[1])
     generateTripDestinations(values[2])
+    console.log(currentTraveler)
     // console.log(values[0].travelers[0])
   })
 }
