@@ -37,6 +37,18 @@ class Traveler {
     })
   }
 
+  totalSpentThisYear() {
+    let eachTripSpend = 0
+    let totalYearSpend = 0
+    const tripsThisYear = this.getThisYearsApprovedTrips()
+    tripsThisYear.forEach(trip => {
+      eachTripSpend += trip.duration * trip.destination.lodging
+      eachTripSpend += trip.travelers * (trip.destination.flights * 2)
+
+    })
+    totalYearSpend = eachTripSpend + (eachTripSpend * .10)
+    return totalYearSpend
+  }
 
 }
 
