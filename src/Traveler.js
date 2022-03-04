@@ -31,7 +31,10 @@ class Traveler {
     const today = Date.now()
     const currentYear = new Date(today).getFullYear()
     console.log(this.trips)
-
+    return this.trips.filter(trip => {
+      console.log(trip)
+      return trip.date.includes(currentYear) && (trip.status === 'approved')
+    })
   }
 
 
