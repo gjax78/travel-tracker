@@ -52,7 +52,7 @@ const generateTripDestinations = (destinationRawData) => {
     domUpdates.updateTrips(currentTraveler.trips)
   })
   console.log(currentTraveler.trips)
-
+  domUpdates.updateTotalSpent(currentTraveler)
   // console.log(newDestination)
   // domUpdates.update something
 }
