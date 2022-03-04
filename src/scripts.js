@@ -50,6 +50,8 @@ const generateTripDestinations = (destinationRawData) => {
     // let newDestination = new Destination(destination)
     currentTraveler.getDestinations(destination)
   })
+  console.log(currentTraveler.trips)
+
   // console.log(newDestination)
   // domUpdates.update something
 }
