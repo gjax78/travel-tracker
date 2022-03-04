@@ -68,4 +68,6 @@ describe('Traveler', () => {
     traveler1.travelerAllTrips(tripsData)
     expect(traveler1.trips).to.have.lengthOf(3)
   })
+
+  // test the trips.destination = {}
 });
