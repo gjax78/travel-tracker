@@ -19,10 +19,9 @@ class Traveler {
   getDestinations(destination) {
     this.trips.forEach(trip => {
       if (trip.destinationId === destination.id) {
-        destination = new Destination(destination)
+        trip.destination = new Destination(destination)
       }
     })
-    console.log(destination)
   }
 }
 
