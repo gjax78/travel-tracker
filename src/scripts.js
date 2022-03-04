@@ -46,7 +46,12 @@ const generateTravelerTrips = (tripRawData) => {
 //generating the destinations by bringing in the destinations from the api
 //the destinationRawData is the entire API information
 const generateTripDestinations = (destinationRawData) => {
-  let newDestination = new Destination(destinationRawData)
+  destinationRawData.destinations.forEach(destination => {
+    // let newDestination = new Destination(destination)
+    currentTraveler.getDestinations(destination)
+  })
+  // console.log(newDestination)
+  // domUpdates.update something
 }
 
 const renderPage = () => {
