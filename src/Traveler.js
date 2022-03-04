@@ -1,4 +1,5 @@
 import Trip from './Trip'; //bringing this in instead of line 36 in scripts
+import Destination from './Destination';
 
 
 class Traveler {
@@ -10,27 +11,18 @@ class Traveler {
   }
 
   travelerAllTrips(trip) {
-    // let newTrip = new Trip(trip)
     if (trip.userID === this.id) {
-         this.trips.push(new Trip(trip))
-       }
-       // console.log(this.trips)
-     }
-    // let tripLog = newTrip.forEach(trip => {
-    //   if (trip.userId === this.id) {
-    //     this.trips.push(newTrip)
-    //   }
-    // })
-    // console.log(this.trips)
-    // if (newTrip.userId === this.id) {
-    //   this.trips.push(newTrip)
-    //   console.log(this.trips)
-    // }
-  // }
+      this.trips.push(new Trip(trip))
+    }
+  }
 
-  // getDestinations() {
-  //   if (trip.destinationId === this.id)
-  // }
+  getDestinations(destination) {
+    this.trips.forEach(trip => {
+      if (trip.destinationId === destination.id) {
+        trip.destination = new Destination(destination)
+      }
+    })
+  }
 }
 
 export default Traveler;
