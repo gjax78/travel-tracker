@@ -26,6 +26,15 @@ class Traveler {
       }
     })
   }
+
+  getThisYearsApprovedTrips() {
+    const today = Date.now()
+    const currentYear = new Date(today).getFullYear()
+    console.log(this.trips)
+
+  }
+
+
 }
 
 export default Traveler;
