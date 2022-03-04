@@ -10,10 +10,13 @@ class Traveler {
     this.trips = []
   }
 
-  travelerAllTrips(trip) {
-    if (trip.userID === this.id) {
-      this.trips.push(new Trip(trip))
-    }
+  travelerAllTrips(trips) {
+    console.log(trips)
+    trips.forEach(trip => {
+      if (trip.userID === this.id) {
+        this.trips.push(new Trip(trip))
+      }
+    })
   }
 
   getDestinations(destination) {
