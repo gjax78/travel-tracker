@@ -11,8 +11,9 @@
     <h1>Travel Tracker</h1>
     <h2 class="welcome-text">Welcome, Traveler</h2>
   </header>
+<div class="wrapper">
   <main>
-    <section id="leftside">
+    <section id="left-side">
       <aside class="travel-form" id="travel-form">
         <h3>Book Your Trip:</h3>
         <form class="js-form" id="form">
@@ -27,26 +28,38 @@
           <button name="button" class="js-quote-button" id="quote-button">Get Travel Quote</button>
           <p class="hidden" id="quote"></p>
           <button name="button" class="js-request-button hidden" id="request-button">Request Travel</button>
+          <aside class="travel-total" id="travel-total">
+            <h4 class="total-spent">Total Travel Spend</h4>
+          </aside>
         </form>
       </aside>
-      <aside class="travel-total" id="travel-total">
-        <h3>Traveler's Total Travel</h3>
-        <h4>Total Travel Spend</h4>
-      </aside>
     </section>
-    <div id="buttons-and-cards-container">
+    <div id="trips-container">
       <section id="trips-button-container">
-        <button name="button" class="js-all-travel-button" id="all-travel-button">All Travel</button>
-        <button name="button" class="js-approved-travel-button" id="approved-travel-button">Approved Travel</button>
-        <button name="button" class="js-pending-travel-button" id="pending-travel-button">Pending Travel</button>
+        <button name="button" class="all-travel-button" id="all-travel-button">All Travel</button>
+        <button name="button" class="past-travel-button" id="past-travel-button">Past Travel</button>
+        <button name="button" class="present-travel-button" id="present-travel-button">Present Travel</button>
+        <button name="button" class="upcoming-travel-button" id="upcoming-travel-button">Upcoming Travel</button>
+        <button name="button" class="pending-travel-button" id="pending-travel-button">Pending Travel</button>
       </section>
       <section class="all-trips">
         <h3>Your Trips:</h3>
-          <p class='trips'> fjdklafjdsljaf </p>
-          <p> fjdlkajfdsfdjh vuyfdsa </p>
+        <section class="card-grid">
+          <!-- <article class="card">
+            <h3 class="card-destination"></h3>
+            <img class="card-image" src="source" alt="alt-text">
+            <p class="card-travelers"></p>
+            <p class="card-date"></p>
+            <p class="card-duration"></p>
+            <p class="card-lodging"></p>
+            <p class="card-flights"></p>
+            <p class="card-status"></p>
+          </article> -->
+        </section>
       </section>
     </div>
   </main>
+</div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 </body>
