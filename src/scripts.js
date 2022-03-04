@@ -48,8 +48,10 @@ const generateTravelerTrips = (tripRawData) => {
 const generateTripDestinations = (destinationRawData) => {
   destinationRawData.destinations.forEach(destination => {
     // let newDestination = new Destination(destination)
+    console.log(destination)
     currentTraveler.getDestinations(destination)
     domUpdates.updateTrips(currentTraveler.trips)
+    domUpdates.updateDestinationsDropDown(destination)
   })
   console.log(currentTraveler.trips)
   domUpdates.updateTotalSpent(currentTraveler)
