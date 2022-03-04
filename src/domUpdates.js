@@ -3,7 +3,7 @@ const displayTrips = document.querySelector('.trips')
 const cardImage = document.querySelector('.card-image')
 const cardSection = document.querySelector('.card-grid')
 const totalSpent = document.querySelector('.total-spent')
-
+const destinationDropdown = document.querySelector('#destination')
 
 
 let domUpdates = {
@@ -39,6 +39,16 @@ let domUpdates = {
 
   updateTotalSpent(currentTraveler) {
     totalSpent.innerText = `This year's total spend: $${currentTraveler.totalSpentThisYear()} (including agent fee of 10%)`
+  },
+
+  updateDestinationsDropDown(destination) {
+    console.log(destination)
+    const newElement = document.createElement('option')
+    newElement.innerText = destination.destination
+    newElement.value = destination.destination
+    destinationDropdown.appendChild(newElement)
+    //grab all of the trip Data
+    //forEach trip => create interpolate destiantoin
   }
 
 
