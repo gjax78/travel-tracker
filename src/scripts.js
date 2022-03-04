@@ -1,31 +1,46 @@
-import fetchData from './apiCalls'
 import './css/styles.css';
 import './images/turing-logo.png';
+import fetchData from './apiCalls'
+import domUpdates from './domUpdates';
 import Traveler from './Traveler';
 import Destination from './Destination';
 import Trip from './Trip';
 
 //-----------------------global variables ---------------//
 let currentTraveler;
+// let allTrips = [];
 
 //-----------------------functions ---------------//
+
+const getRandomTraveler = array => {
+  return array[Math.floor(Math.random() * array.length)];
+};
+
 
 //generating the destinations by bringing in the traveler from the api
 //the travelerRawData is the entire API information
 const generateNewTraveler = (travelerRawData) => {
-  currentTraveler = new Traveler(travelerRawData)
+  const randomTraveler = getRandomTraveler(travelerRawData.travelers);
+  // console.log(travelerRawData.travelers)
+  currentTraveler = new Traveler(randomTraveler)
+  console.log(currentTraveler)
   // return currentTraveler
+  let firstName = currentTraveler.name.split(' ')[0]
+  domUpdates.updateWelcomeMessage(firstName)
 }
 
 //generating the destinations by bringing in the trips from the api
 //the tripRawData is the entire API information
 const generateTravelerTrips = (tripRawData) => {
-  // console.log(tripTrawData)
   tripRawData.trips.forEach(trip => {
-    let newTrip = new Trip(trip)
-    currentTraveler.travelerAllTrips(newTrip)
-    console.log(newTrip)
+    // console.log(trip)
+    // let tripObject = new Trip(trip)
+    // allTrips.push(trip)
+    currentTraveler.travelerAllTrips(trip)
   })
+  console.log(currentTraveler)
+  domUpdates.updateTrips(currentTraveler.trips)
+  console.log(currentTraveler.trips)
 }
 
 //generating the destinations by bringing in the destinations from the api
