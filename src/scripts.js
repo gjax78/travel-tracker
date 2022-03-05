@@ -21,6 +21,7 @@ const submitButton = document.querySelector('.submit-button')
 //-----------------------global variables ---------------//
 let currentTraveler;
 // let allTrips = [];
+let allDestinations = [];
 
 //-----------------------functions ---------------//
 
