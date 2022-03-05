@@ -90,10 +90,13 @@ const renderPage = () => {
 
 
 //----------------------------scripts -----------------
-window.onload = (event) => (event, renderPage());
+// window.onload = (event) => (event, renderPage());
+window.addEventListener("load", renderPage)
 
-
-
+const findDestinationID = (name) => {
+  console.log(allDestinations)
+  return allDestinations.find(destination => destination.name === name).id
+}
 
 //---------------------------- POSTS -----------------
 const requestTrip = (e) => {
@@ -101,14 +104,14 @@ const requestTrip = (e) => {
 
   // console.log(tripRawData.length)
   const tripRequest = {
-    'id': Date.now(),
-    'userID': currentTraveler.id,
-    'destinationID': parseInt(destinationInput.value),
-    'travelers': parseInt(travelersInput.value),
-    'date': dateInput.value.split("-").join("/"),
-    'duration': parseInt(durationInput.value),
-    'status': 'pending',
-    'suggestedActivities': []
+    id: Date.now(),
+    userID: currentTraveler.id,
+    destinationID: findDestinationID(destinationInput.value),
+    travelers: parseInt(travelersInput.value),
+    date: dateInput.value.split("-").join("/"),
+    duration: parseInt(durationInput.value),
+    status: 'pending',
+    suggestedActivities: []
   }
   console.log(Date.now())
   console.log(currentTraveler.id)
@@ -117,7 +120,9 @@ const requestTrip = (e) => {
   console.log(dateInput.value.split("-").join("/"))
   console.log('status')
 
-  fetchAPI.postData('trips', tripRequest)
+  fetchAPI.postData(tripRequest)
+  // console.log(tripRawData.length)
+
 }
 
 const findDestination = () => {
