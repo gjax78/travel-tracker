@@ -1,10 +1,19 @@
 import './css/styles.css';
 import './images/turing-logo.png';
-import fetchData from './apiCalls'
+// import fetchData from './apiCalls'
+import fetchAPI from './apiCalls'
 import domUpdates from './domUpdates';
 import Traveler from './Traveler';
 import Destination from './Destination';
 import Trip from './Trip';
+
+//-----------------------querySelectors ---------------//
+
+const bookTravelForm = document.querySelector('.form')
+
+
+
+
 
 //-----------------------global variables ---------------//
 let currentTraveler;
@@ -60,9 +69,9 @@ const generateTripDestinations = (destinationRawData) => {
 }
 
 const renderPage = () => {
-  let travelerPromise = fetchData('travelers')
-  let tripPromise = fetchData('trips')
-  let destinationPromise = fetchData('destinations')
+  let travelerPromise = fetchAPI.fetchData('travelers')
+  let tripPromise = fetchAPI.fetchData('trips')
+  let destinationPromise = fetchAPI.fetchData('destinations')
   Promise.all([travelerPromise, tripPromise, destinationPromise])
   .then(values => {
     generateNewTraveler(values[0])
@@ -85,6 +94,22 @@ window.onload = (event) => (event, renderPage());
 
 
 
+//---------------------------- POSTS -----------------
+bookTravelForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const tripRequest = {
+    id: ,
+    userID: ,
+    destinationID: ,
+    travelers: ,
+    date: ,
+    duration: ,
+    status: ,
+    suggestedActivities:
+  }
+  fetchAPI.postHydrationData(newHydro)
+  e.target.reset()
+});
 
 
 
