@@ -1,15 +1,26 @@
 const fetchAPI = {
   fetchData(extension) {
+    console.log(extension)
     return fetch(`http://localhost:3001/api/v1/${extension}`)
       .then(response => response.json())
       .catch(err => console.log(err))
   },
 
-  postData(extension, tripRequest) {
-    return fetch(`http://localhost:3001/api/v1/${extension}`, {
+  // const postBooking = (booking) => {
+  //   return fetch('http://localhost:3001/api/v1/bookings', {
+  //     method: 'POST',
+  //     body: JSON.stringify(booking),
+  //     headers: {'Content-Type': 'application/json'}
+  //   })
+  //     .then(response => handleError(response))
+  // }
+
+
+  postData(tripRequest) {
+    return fetch('http://localhost:3001/api/v1/trips', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(tripRequest),
+      headers: {'Content-Type': 'application/json'}
     })
     .then(response => {
       if(!response.ok) {
