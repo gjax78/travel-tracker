@@ -126,6 +126,20 @@ const findDestination = () => {
   })
 }
 
+const getQuote = (event) => {
+  event.preventDefault()
+  let tripEstimate = 0
+  let totalEstimate = 0
+  const matchingDestination = findDestination()
+
+  tripEstimate += durationInput.value * matchingDestination.lodging
+  tripEstimate += travelersInput.value * matchingDestination.flights
+
+  totalEstimate = tripEstimate + (tripEstimate * .10)
+
+  domUpdates.updateTripQuote(totalEstimate)
+}
+
 
 
 
