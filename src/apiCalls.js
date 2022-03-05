@@ -9,13 +9,13 @@ const fetchAPI = {
     return fetch(`http://localhost:3001/api/v1/${extension}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(tripRequest)}
+      body: JSON.stringify(tripRequest),
     })
     .then(response => {
       if(!response.ok) {
-        throw new Error('Please fill out all input fields!')
+        throw new Error('Check your internet connection. Please try again.')
       } else {
-        alert("Your trip has been submitted. Please await the agent's approval or denial.")
+        alert('Thanks for your submission. Please wait for the agent to approve.')
         return response.json()
       }
     })
