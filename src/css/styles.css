@@ -38,7 +38,7 @@ header {
   width: 50%;
 }
 
-.js-form {
+.form {
   display: flex;
   flex-direction: column;
   float: left;
