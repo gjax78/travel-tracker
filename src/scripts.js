@@ -98,7 +98,7 @@ window.onload = (event) => (event, renderPage());
 bookTravelForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const tripRequest = {
-    id: ,
+    id: currentTraveler.id,
     userID: ,
     destinationID: ,
     travelers: ,
