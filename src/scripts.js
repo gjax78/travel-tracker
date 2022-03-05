@@ -120,7 +120,11 @@ const requestTrip = (e) => {
   fetchAPI.postData('trips', tripRequest)
 }
 
-
+const findDestination = () => {
+  return allDestinations.find(location => {
+    return location.name === destinationInput.value
+  })
+}
 
 
 
