@@ -11,7 +11,7 @@ class Traveler {
   }
 
   travelerAllTrips(trips) {
-    console.log(trips)
+    // console.log(trips)
     trips.forEach(trip => {
       if (trip.userID === this.id) {
         this.trips.push(new Trip(trip))
@@ -30,9 +30,9 @@ class Traveler {
   getThisYearsApprovedTrips() {
     const today = Date.now()
     const currentYear = new Date(today).getFullYear()
-    console.log(this.trips)
+    // console.log(this.trips)
     return this.trips.filter(trip => {
-      console.log(trip)
+      // console.log(trip)
       return trip.date.includes(currentYear) && (trip.status === 'approved')
     })
   }
