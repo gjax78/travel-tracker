@@ -20,7 +20,6 @@ const submitButton = document.querySelector('.submit-button')
 
 //-----------------------global variables ---------------//
 let currentTraveler;
-// let allTrips = [];
 let allDestinations = [];
 
 //-----------------------functions ---------------//
@@ -88,41 +87,29 @@ const renderPage = () => {
 }
 
 
-
 //----------------------------scripts -----------------
 // window.onload = (event) => (event, renderPage());
 window.addEventListener("load", renderPage)
 
-const findDestinationID = (name) => {
-  console.log(allDestinations)
-  return allDestinations.find(destination => destination.name === name).id
-}
 
 //---------------------------- POSTS -----------------
 const requestTrip = (e) => {
   e.preventDefault();
-
-  // console.log(tripRawData.length)
+  const getDestination = findDestination()
   const tripRequest = {
     id: Date.now(),
     userID: currentTraveler.id,
-    destinationID: findDestinationID(destinationInput.value),
+    destinationID: getDestination.id,
     travelers: parseInt(travelersInput.value),
     date: dateInput.value.split("-").join("/"),
     duration: parseInt(durationInput.value),
     status: 'pending',
     suggestedActivities: []
   }
-  console.log(Date.now())
-  console.log(currentTraveler.id)
-  console.log(destinationInput.value)
-  console.log(travelersInput.value)
-  console.log(dateInput.value.split("-").join("/"))
-  console.log('status')
-
   fetchAPI.postData(tripRequest)
-  // console.log(tripRawData.length)
-
+    .then(() => {
+      domUpdates.clearForm()
+    })
 }
 
 const findDestination = () => {
@@ -135,17 +122,12 @@ const getQuote = (event) => {
   event.preventDefault()
   let tripEstimate = 0
   let totalEstimate = 0
-  const matchingDestination = findDestination()
-  tripEstimate += durationInput.value * matchingDestination.lodging
-  tripEstimate += travelersInput.value * matchingDestination.flights
+  const getDestination = findDestination()
+  tripEstimate += durationInput.value * getDestination.lodging
+  tripEstimate += travelersInput.value * getDestination.flights
   totalEstimate = tripEstimate + (tripEstimate * .10)
   domUpdates.updateTripQuote(totalEstimate)
 }
-
-
-
-
-///end of scripts should call fetch so it continually loops
 
 
 //----------------------- addEventListeners ---------------//
@@ -160,3 +142,4 @@ quoteButton.addEventListener('click', getQuote)
 //create domUpdates folder
 //display user's trips
 //separate function that calls travelers to do my fetch (based on user id)
+///end of scripts should call fetch so it continually loops
