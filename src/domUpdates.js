@@ -47,8 +47,6 @@ let domUpdates = {
     newElement.innerText = destination.destination
     newElement.value = destination.destination
     destinationDropdown.appendChild(newElement)
-    //grab all of the trip Data
-    //forEach trip => create interpolate destiantoin
   }
 
 
