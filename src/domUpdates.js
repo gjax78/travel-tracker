@@ -5,7 +5,10 @@ const cardSection = document.querySelector('.card-grid')
 const totalSpent = document.querySelector('.total-spent')
 const destinationDropdown = document.querySelector('#destination')
 const tripCost = document.querySelector('#quote')
-
+const dateInput = document.querySelector('.departure-date')
+const destinationInput = document.querySelector('.destination')
+const durationInput = document.querySelector('.duration')
+const travelersInput = document.querySelector('.total-travelers')
 
 
 let domUpdates = {
@@ -14,11 +17,8 @@ let domUpdates = {
   },
 
   updateTrips(trips) {
-    // console.log(trips)
-    //empty out the all-cards div (assign innerHTML to ' ')
     cardSection.innerHTML = ' '
     trips.forEach(trip => {
-      // console.log(trip)
       cardSection.innerHTML +=
       `
       <article class="card">
@@ -32,10 +32,6 @@ let domUpdates = {
         <p class="card-status">${trip.status}</p>
       </article>
       `
-      //you're going to have a different number of trips each time
-      // displayTrips.innerText = `${trip.destination.name}`
-      // displayTripDate.innerText = `${trip.date}`
-      // cardImage.src = `${trip.destination.image}`
     })
   },
 
@@ -55,6 +51,15 @@ let domUpdates = {
    tripCost.classList.remove('hidden')
    tripCost.innerHTML = `Estimated Cost: $${costEstimate}`
  },
+
+  clearForm() {
+    tripCost.classList.add('hidden')
+    dateInput.value = ''
+    durationInput.value = ''
+    travelersInput.value = ''
+    destinationDropdown.value = ''
+  }
+
 }
 
 
