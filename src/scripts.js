@@ -10,7 +10,10 @@ import Trip from './Trip';
 //-----------------------querySelectors ---------------//
 
 const bookTravelForm = document.querySelector('.form')
-
+const dateInput = document.querySelector('.departure-date')
+const durationInput = document.querySelector('.duration')
+const travelersInput = document.querySelector('.total-travelers')
+const quoteButton = document.querySelector('.quote-button')
 
 
 
@@ -98,8 +101,8 @@ window.onload = (event) => (event, renderPage());
 bookTravelForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const tripRequest = {
-    id: currentTraveler.id,
-    userID: ,
+    id: ,
+    userID: currentTraveler.id,
     destinationID: ,
     travelers: ,
     date: ,
