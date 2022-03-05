@@ -98,21 +98,21 @@ window.onload = (event) => (event, renderPage());
 
 
 //---------------------------- POSTS -----------------
-bookTravelForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const tripRequest = {
-    id: ,
-    userID: currentTraveler.id,
-    destinationID: ,
-    travelers: ,
-    date: ,
-    duration: ,
-    status: ,
-    suggestedActivities:
-  }
-  fetchAPI.postHydrationData(newHydro)
-  e.target.reset()
-});
+// bookTravelForm.addEventListener('submit', (e) => {
+//   e.preventDefault();
+//   const tripRequest = {
+//     id: ,
+//     userID: currentTraveler.id,
+//     destinationID: ,
+//     travelers: ,
+//     date: ,
+//     duration: ,
+//     status: ,
+//     suggestedActivities:
+//   }
+//   fetchAPI.postHydrationData(newHydro)
+//   e.target.reset()
+// });
 
 
 
