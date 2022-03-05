@@ -5,21 +5,21 @@ const fetchAPI = {
       .catch(err => console.log(err))
   },
 
-  // postData(extension, tripRequest) {
-  //   return fetch(`http://localhost:3001/api/v1/${extension}`, {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify(tripRequest)}
-  //   })
-  //   .then(response => {
-  //     if(!response.ok) {
-  //       throw new Error('Please fill out all input fields!')
-  //     } else {
-  //       alert("Your trip has been submitted. Please await the agent's approval or denial.")
-  //       return response.json()
-  //     }
-  //   })
-  // }
+  postData(extension, tripRequest) {
+    return fetch(`http://localhost:3001/api/v1/${extension}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(tripRequest)}
+    })
+    .then(response => {
+      if(!response.ok) {
+        throw new Error('Please fill out all input fields!')
+      } else {
+        alert("Your trip has been submitted. Please await the agent's approval or denial.")
+        return response.json()
+      }
+    })
+  }
 }
 
 

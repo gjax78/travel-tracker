@@ -11,11 +11,11 @@ import Trip from './Trip';
 
 const bookTravelForm = document.querySelector('.form')
 const dateInput = document.querySelector('.departure-date')
+const destinationInput = document.querySelector('.destination')
 const durationInput = document.querySelector('.duration')
 const travelersInput = document.querySelector('.total-travelers')
 const quoteButton = document.querySelector('.quote-button')
-
-
+const submitButton = document.querySelector('.submit-button')
 
 
 //-----------------------global variables ---------------//
@@ -35,7 +35,7 @@ const generateNewTraveler = (travelerRawData) => {
   const randomTraveler = getRandomTraveler(travelerRawData.travelers);
   // console.log(travelerRawData.travelers)
   currentTraveler = new Traveler(randomTraveler)
-  console.log(currentTraveler)
+  // console.log(currentTraveler)
   // return currentTraveler
   let firstName = currentTraveler.name.split(' ')[0]
   domUpdates.updateWelcomeMessage(firstName)
@@ -48,24 +48,25 @@ const generateTravelerTrips = (tripRawData) => {
     // console.log(trip)
     // let tripObject = new Trip(trip)
     // allTrips.push(trip)
-    console.log(tripRawData)
+    // console.log(tripRawData)
     currentTraveler.travelerAllTrips(tripRawData.trips)
   // })
-  console.log(currentTraveler)
-  console.log(currentTraveler.trips)
+  // console.log(currentTraveler)
+  // console.log(currentTraveler.trips)
 }
 
 //generating the destinations by bringing in the destinations from the api
 //the destinationRawData is the entire API information
 const generateTripDestinations = (destinationRawData) => {
   destinationRawData.destinations.forEach(destination => {
-    // let newDestination = new Destination(destination)
-    console.log(destination)
+    let newDestination = new Destination(destination)
+    allDestinations.push(newDestination)
+    // console.log(destination)
     currentTraveler.getDestinations(destination)
     domUpdates.updateTrips(currentTraveler.trips)
     domUpdates.updateDestinationsDropDown(destination)
   })
-  console.log(currentTraveler.trips)
+  // console.log(currentTraveler.trips)
   domUpdates.updateTotalSpent(currentTraveler)
   // console.log(newDestination)
   // domUpdates.update something
@@ -80,13 +81,10 @@ const renderPage = () => {
     generateNewTraveler(values[0])
     generateTravelerTrips(values[1])
     generateTripDestinations(values[2])
-    console.log(currentTraveler)
+    // console.log(currentTraveler)
     // console.log(values[0].travelers[0])
   })
 }
-
-
-
 
 
 
@@ -96,27 +94,43 @@ window.onload = (event) => (event, renderPage());
 
 
 
-
 //---------------------------- POSTS -----------------
-bookTravelForm.addEventListener('submit', (e) => {
+const requestTrip = (e) => {
   e.preventDefault();
+
+  // console.log(tripRawData.length)
   const tripRequest = {
-    id: ,
-    userID: currentTraveler.id,
-    destinationID: destinationId.value,
-    travelers: travelers.value,
-    date: date.value,
-    duration: duration.value,
-    status: 'pending',
-    suggestedActivities: []
+    'id': Date.now(),
+    'userID': currentTraveler.id,
+    'destinationID': parseInt(destinationInput.value),
+    'travelers': parseInt(travelersInput.value),
+    'date': dateInput.value.split("-").join("/"),
+    'duration': parseInt(durationInput.value),
+    'status': 'pending',
+    'suggestedActivities': []
   }
-  fetchAPI.postHydrationData(newHydro)
-  e.target.reset()
-});
+  console.log(Date.now())
+  console.log(currentTraveler.id)
+  console.log(destinationInput.value)
+  console.log(travelersInput.value)
+  console.log(dateInput.value.split("-").join("/"))
+  console.log('status')
+
+  fetchAPI.postData('trips', tripRequest)
+}
 
 
 
 
+
+
+///end of scripts should call fetch so it continually loops
+
+
+//----------------------- addEventListeners ---------------//
+
+submitButton.addEventListener('click', requestTrip)
+quoteButton.addEventListener('click', getQuote)
 
 
 //-----------------------------notes----------------------
