@@ -1,14 +1,27 @@
 import './css/styles.css';
 import './images/turing-logo.png';
-import fetchData from './apiCalls'
+// import fetchData from './apiCalls'
+import fetchAPI from './apiCalls'
 import domUpdates from './domUpdates';
 import Traveler from './Traveler';
 import Destination from './Destination';
 import Trip from './Trip';
 
+//-----------------------querySelectors ---------------//
+
+const bookTravelForm = document.querySelector('.form')
+const dateInput = document.querySelector('.departure-date')
+const destinationInput = document.querySelector('.destination')
+const durationInput = document.querySelector('.duration')
+const travelersInput = document.querySelector('.total-travelers')
+const quoteButton = document.querySelector('.quote-button')
+const submitButton = document.querySelector('.submit-button')
+
+
 //-----------------------global variables ---------------//
 let currentTraveler;
 // let allTrips = [];
+let allDestinations = [];
 
 //-----------------------functions ---------------//
 
@@ -23,7 +36,7 @@ const generateNewTraveler = (travelerRawData) => {
   const randomTraveler = getRandomTraveler(travelerRawData.travelers);
   // console.log(travelerRawData.travelers)
   currentTraveler = new Traveler(randomTraveler)
-  console.log(currentTraveler)
+  // console.log(currentTraveler)
   // return currentTraveler
   let firstName = currentTraveler.name.split(' ')[0]
   domUpdates.updateWelcomeMessage(firstName)
@@ -36,57 +49,109 @@ const generateTravelerTrips = (tripRawData) => {
     // console.log(trip)
     // let tripObject = new Trip(trip)
     // allTrips.push(trip)
-    console.log(tripRawData)
+    // console.log(tripRawData)
     currentTraveler.travelerAllTrips(tripRawData.trips)
   // })
-  console.log(currentTraveler)
-  console.log(currentTraveler.trips)
+  // console.log(currentTraveler)
+  // console.log(currentTraveler.trips)
 }
 
 //generating the destinations by bringing in the destinations from the api
 //the destinationRawData is the entire API information
 const generateTripDestinations = (destinationRawData) => {
   destinationRawData.destinations.forEach(destination => {
-    // let newDestination = new Destination(destination)
+    let newDestination = new Destination(destination)
+    allDestinations.push(newDestination)
+    // console.log(destination)
     currentTraveler.getDestinations(destination)
     domUpdates.updateTrips(currentTraveler.trips)
+    domUpdates.updateDestinationsDropDown(destination)
   })
-  console.log(currentTraveler.trips)
+  // console.log(currentTraveler.trips)
   domUpdates.updateTotalSpent(currentTraveler)
   // console.log(newDestination)
   // domUpdates.update something
 }
 
 const renderPage = () => {
-  let travelerPromise = fetchData('travelers')
-  let tripPromise = fetchData('trips')
-  let destinationPromise = fetchData('destinations')
+  let travelerPromise = fetchAPI.fetchData('travelers')
+  let tripPromise = fetchAPI.fetchData('trips')
+  let destinationPromise = fetchAPI.fetchData('destinations')
   Promise.all([travelerPromise, tripPromise, destinationPromise])
   .then(values => {
     generateNewTraveler(values[0])
     generateTravelerTrips(values[1])
     generateTripDestinations(values[2])
-    console.log(currentTraveler)
+    // console.log(currentTraveler)
     // console.log(values[0].travelers[0])
   })
 }
 
 
 
-
-
-
 //----------------------------scripts -----------------
-window.onload = (event) => (event, renderPage());
+// window.onload = (event) => (event, renderPage());
+window.addEventListener("load", renderPage)
+
+const findDestinationID = (name) => {
+  console.log(allDestinations)
+  return allDestinations.find(destination => destination.name === name).id
+}
+
+//---------------------------- POSTS -----------------
+const requestTrip = (e) => {
+  e.preventDefault();
+
+  // console.log(tripRawData.length)
+  const tripRequest = {
+    id: Date.now(),
+    userID: currentTraveler.id,
+    destinationID: findDestinationID(destinationInput.value),
+    travelers: parseInt(travelersInput.value),
+    date: dateInput.value.split("-").join("/"),
+    duration: parseInt(durationInput.value),
+    status: 'pending',
+    suggestedActivities: []
+  }
+  console.log(Date.now())
+  console.log(currentTraveler.id)
+  console.log(destinationInput.value)
+  console.log(travelersInput.value)
+  console.log(dateInput.value.split("-").join("/"))
+  console.log('status')
+
+  fetchAPI.postData(tripRequest)
+  // console.log(tripRawData.length)
+
+}
+
+const findDestination = () => {
+  return allDestinations.find(location => {
+    return location.name === destinationInput.value
+  })
+}
+
+const getQuote = (event) => {
+  event.preventDefault()
+  let tripEstimate = 0
+  let totalEstimate = 0
+  const matchingDestination = findDestination()
+  tripEstimate += durationInput.value * matchingDestination.lodging
+  tripEstimate += travelersInput.value * matchingDestination.flights
+  totalEstimate = tripEstimate + (tripEstimate * .10)
+  domUpdates.updateTripQuote(totalEstimate)
+}
 
 
 
 
+///end of scripts should call fetch so it continually loops
 
 
+//----------------------- addEventListeners ---------------//
 
-
-
+submitButton.addEventListener('click', requestTrip)
+quoteButton.addEventListener('click', getQuote)
 
 
 //-----------------------------notes----------------------

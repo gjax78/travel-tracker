@@ -3,6 +3,8 @@ const displayTrips = document.querySelector('.trips')
 const cardImage = document.querySelector('.card-image')
 const cardSection = document.querySelector('.card-grid')
 const totalSpent = document.querySelector('.total-spent')
+const destinationDropdown = document.querySelector('#destination')
+const tripCost = document.querySelector('#quote')
 
 
 
@@ -39,9 +41,20 @@ let domUpdates = {
 
   updateTotalSpent(currentTraveler) {
     totalSpent.innerText = `This year's total spend: $${currentTraveler.totalSpentThisYear()} (including agent fee of 10%)`
-  }
+  },
 
+  updateDestinationsDropDown(destination) {
+    // console.log(destination)
+    const newElement = document.createElement('option')
+    newElement.innerText = destination.destination
+    newElement.value = destination.destination
+    destinationDropdown.appendChild(newElement)
+  },
 
+  updateTripQuote(costEstimate) {
+   tripCost.classList.remove('hidden')
+   tripCost.innerHTML = `Estimated Cost: $${costEstimate}`
+ },
 }
 
 
