@@ -6,6 +6,11 @@ const totalSpent = document.querySelector('.total-spent')
 const destinationDropdown = document.querySelector('#destination')
 
 
+//ADDED 1230 3/5/22
+const tripCost = document.querySelector('#quote')
+//-------
+
+
 let domUpdates = {
   updateWelcomeMessage(firstName) {
     welcomeMessage.innerText = `Welcome, ${firstName}!`
@@ -42,12 +47,20 @@ let domUpdates = {
   },
 
   updateDestinationsDropDown(destination) {
-    console.log(destination)
+    // console.log(destination)
     const newElement = document.createElement('option')
     newElement.innerText = destination.destination
     newElement.value = destination.destination
     destinationDropdown.appendChild(newElement)
-  }
+  },
+
+
+  //ADDED 1230 3/5/22
+  updateTripQuote(costEstimate) {
+   tripCost.classList.remove('hidden')
+   tripCost.innerHTML = `<strong>Estimated Cost:</strong> $${costEstimate}`
+ },
+ //-------------------------------
 
 
 }
