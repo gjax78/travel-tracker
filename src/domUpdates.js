@@ -51,7 +51,7 @@ let domUpdates = {
 
   updateTripQuote(costEstimate) {
    tripCost.classList.remove('hidden')
-   tripCost.innerHTML = `Estimated Cost: $${costEstimate}`
+   tripCost.innerHTML = `Estimated Cost: $${costEstimate} (including 10% agent fee)`
  },
 
   clearForm() {
