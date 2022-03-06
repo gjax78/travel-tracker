@@ -81,7 +81,7 @@ describe('Traveler', () => {
     expect(traveler4.trips).to.have.lengthOf(0)
   })
 
-  it ('should add traveler destinations to their trips', () => {
+  it ('should add a destinations property to their trip', () => {
     traveler1.travelerAllTrips(tripsData)
     traveler1.getDestinations(destinationData)
 
@@ -99,7 +99,42 @@ describe('Traveler', () => {
   })
 
   it ('should get this years approved trips', () => {
-    expect(traveler1.getThisYearsApprovedTrips()).to.deep.equal([])
+    traveler1.travelerAllTrips(tripsData)
+    traveler1.getThisYearsApprovedTrips()
+    expect(traveler1.trips).to.deep.equal([{
+      date: "2022/09/16",
+      destination: {},
+      destinationId: 49,
+      duration: 8,
+      id: 1,
+      status: "approved",
+      suggestedActivities: [],
+      travelers: 1,
+      userId: 1
+    },
+      {
+      date: "2022/10/04",
+      destination: {},
+      destinationId: 25,
+      duration: 18,
+      id: 2,
+      status: "approved",
+      suggestedActivities: [],
+      travelers: 5,
+      userId: 1,
+    },
+      {
+      date: "2020/05/06",
+      destination: {},
+      destinationId: 26,
+      duration: 11,
+      id: 83,
+      status: "pending",
+      suggestedActivities: [],
+      travelers: 1,
+      userId: 1,
+      }
+    ])
   })
 
   // test the trips.destination = {}
