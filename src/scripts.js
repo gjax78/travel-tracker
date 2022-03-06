@@ -93,8 +93,7 @@ window.addEventListener("load", renderPage)
 
 
 //---------------------------- POSTS -----------------
-const requestTrip = (e) => {
-  e.preventDefault();
+const requestTrip = () => {
   const getDestination = findDestination()
   const tripRequest = {
     id: Date.now(),
@@ -106,11 +105,20 @@ const requestTrip = (e) => {
     status: 'pending',
     suggestedActivities: []
   }
+  // domUpdates.checkFormInputs()
   fetchAPI.postData(tripRequest)
     .then(() => {
       domUpdates.clearForm()
     })
 }
+
+const submitRequest = (e) => {
+  if (dateInput.value && durationInput.value && travelersInput.value && destinationInput.value) {
+    e.preventDefault();
+    requestTrip()
+  }
+}
+
 
 const findDestination = () => {
   return allDestinations.find(location => {
@@ -132,7 +140,7 @@ const getQuote = (event) => {
 
 //----------------------- addEventListeners ---------------//
 
-submitButton.addEventListener('click', requestTrip)
+submitButton.addEventListener('click', submitRequest)
 quoteButton.addEventListener('click', getQuote)
 
 
