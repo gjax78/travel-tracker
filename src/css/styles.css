@@ -8,6 +8,29 @@ html {
   height: 100%;
 }
 
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.login-box {
+  border: 3px solid red;
+}
+
+.login-details {
+  text-align: center;
+  flex-direction: column;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
 /* ------------------------------- header/top banner ----------------*/
 
 header {
