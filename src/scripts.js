@@ -21,7 +21,6 @@ const loginPage = document.querySelector('.login')
 const signInButton = document.querySelector('.login-button')
 const username = document.querySelector('#username')
 const password = document.querySelector('#password')
-const loginError = document.querySelector('.login-error')
 
 //-----------------------global variables ---------------//
 let currentTraveler;
@@ -60,10 +59,10 @@ const verifyUser = () => {
 
   if ((userLogin === 'traveler') && (0 < currentUserID && currentUserID < 51) && (password.value === 'traveler')) {
     hideLoginPage(currentUserID)
-  }
-  // } else {
-  //   loginError.innerText = "Whoops"
   // }
+  } else {
+    domUpdates.displayLoginError()
+  }
 }
 
 //----------------------//
