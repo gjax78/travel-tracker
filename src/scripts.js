@@ -55,20 +55,12 @@ const findUserID = (event) => {
 }
 
 const verifyUser = () => {
-  // let username = username.value.split('')
-  // let letters = username.slice(0,8).join('')
-  // let numbres = username.slice(8, 10).join('')
   let userLogin = username.value.slice(0, 8)
   console.log(userLogin)
 
-  //WILL NEED THIS CONDITIONAL BEFORE
-  // if (userLogin.includes('traveler') && password.value === 'travel') {
-  if ((userLogin === 'traveler') && (-1 < currentUserID && currentUserID < 50) && (password.value === 'traveler')) {
+  if ((userLogin === 'traveler') && (0 < currentUserID && currentUserID < 51) && (password.value === 'traveler')) {
     hideLoginPage(currentUserID)
   }
-  // }
-
-
   // } else {
   //   loginError.innerText = "Whoops"
   // }
@@ -90,8 +82,7 @@ const generateNewTraveler = (travelerRawData) => {
   // console.log(travelerRawData.travelers)
 
   travelers = travelerRawData.travelers.map(traveler => new Traveler(traveler));
-  currentTraveler = travelers[currentUserID]
-  console.log(currentTraveler)
+  currentTraveler = travelers[currentUserID - 1]
 
   // currentTraveler = new Traveler(randomTraveler)
   // console.log(currentTraveler)
@@ -109,7 +100,6 @@ const generateTravelerTrips = (tripRawData) => {
     // allTrips.push(trip)
     // console.log(tripRawData)
     currentTraveler.travelerAllTrips(tripRawData.trips)
-    console.log(currentTraveler.trips)
   // })
   // console.log(currentTraveler)
   // console.log(currentTraveler.trips)
