@@ -20,22 +20,27 @@ const submitButton = document.querySelector('.submit-button')
 
 //-----------------------global variables ---------------//
 let currentTraveler;
-// let allTrips = [];
 let allDestinations = [];
+let travelers;
 
 //-----------------------functions ---------------//
 
-const getRandomTraveler = array => {
-  return array[Math.floor(Math.random() * array.length)];
-};
+// const getRandomTraveler = array => {
+//   return array[Math.floor(Math.random() * array.length)];
+// };
 
 
 //generating the destinations by bringing in the traveler from the api
 //the travelerRawData is the entire API information
 const generateNewTraveler = (travelerRawData) => {
-  const randomTraveler = getRandomTraveler(travelerRawData.travelers);
+  console.log(travelerRawData)
+  // const randomTraveler = getRandomTraveler(travelerRawData.travelers);
   // console.log(travelerRawData.travelers)
-  currentTraveler = new Traveler(randomTraveler)
+
+  travelers = travelerRawData.travelers.map(traveler => new Traveler(traveler));
+  currentTraveler = travelers[0]
+
+  // currentTraveler = new Traveler(randomTraveler)
   // console.log(currentTraveler)
   // return currentTraveler
   let firstName = currentTraveler.name.split(' ')[0]
@@ -88,42 +93,39 @@ const renderPage = () => {
 }
 
 
-
 //----------------------------scripts -----------------
 // window.onload = (event) => (event, renderPage());
 window.addEventListener("load", renderPage)
 
-const findDestinationID = (name) => {
-  console.log(allDestinations)
-  return allDestinations.find(destination => destination.name === name).id
-}
 
 //---------------------------- POSTS -----------------
-const requestTrip = (e) => {
-  e.preventDefault();
-
-  // console.log(tripRawData.length)
+const requestTrip = () => {
+  const getDestination = findDestination()
   const tripRequest = {
     id: Date.now(),
     userID: currentTraveler.id,
-    destinationID: findDestinationID(destinationInput.value),
+    destinationID: getDestination.id,
     travelers: parseInt(travelersInput.value),
     date: dateInput.value.split("-").join("/"),
     duration: parseInt(durationInput.value),
     status: 'pending',
     suggestedActivities: []
   }
-  console.log(Date.now())
-  console.log(currentTraveler.id)
-  console.log(destinationInput.value)
-  console.log(travelersInput.value)
-  console.log(dateInput.value.split("-").join("/"))
-  console.log('status')
-
+  // domUpdates.checkFormInputs()
   fetchAPI.postData(tripRequest)
-  // console.log(tripRawData.length)
-
+    .then(() => {
+      domUpdates.clearForm()
+    })
+  renderPage()
 }
+
+const submitRequest = (e) => {
+  if (dateInput.value && durationInput.value && travelersInput.value && destinationInput.value) {
+    e.preventDefault();
+    requestTrip()
+  }
+}
+
 
 const findDestination = () => {
   return allDestinations.find(location => {
@@ -131,27 +133,29 @@ const findDestination = () => {
   })
 }
 
-const getQuote = (event) => {
-  event.preventDefault()
+const submitQuote = (e) => {
+  if (dateInput.value && durationInput.value && travelersInput.value && destinationInput.value) {
+    e.preventDefault();
+    getQuote()
+  }
+}
+
+const getQuote = () => {
+  // event.preventDefault()
   let tripEstimate = 0
   let totalEstimate = 0
-  const matchingDestination = findDestination()
-  tripEstimate += durationInput.value * matchingDestination.lodging
-  tripEstimate += travelersInput.value * matchingDestination.flights
+  const getDestination = findDestination()
+  tripEstimate += durationInput.value * getDestination.lodging
+  tripEstimate += travelersInput.value * getDestination.flights
   totalEstimate = tripEstimate + (tripEstimate * .10)
   domUpdates.updateTripQuote(totalEstimate)
 }
 
 
-
-
-///end of scripts should call fetch so it continually loops
-
-
 //----------------------- addEventListeners ---------------//
 
-submitButton.addEventListener('click', requestTrip)
-quoteButton.addEventListener('click', getQuote)
+submitButton.addEventListener('click', submitRequest)
+quoteButton.addEventListener('click', submitQuote)
 
 
 //-----------------------------notes----------------------
@@ -160,3 +164,4 @@ quoteButton.addEventListener('click', getQuote)
 //create domUpdates folder
 //display user's trips
 //separate function that calls travelers to do my fetch (based on user id)
+///end of scripts should call fetch so it continually loops
