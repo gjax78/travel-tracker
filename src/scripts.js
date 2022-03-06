@@ -126,8 +126,15 @@ const findDestination = () => {
   })
 }
 
-const getQuote = (event) => {
-  event.preventDefault()
+const submitQuote = (e) => {
+  if (dateInput.value && durationInput.value && travelersInput.value && destinationInput.value) {
+    e.preventDefault();
+    getQuote()
+  }
+}
+
+const getQuote = () => {
+  // event.preventDefault()
   let tripEstimate = 0
   let totalEstimate = 0
   const getDestination = findDestination()
@@ -141,7 +148,7 @@ const getQuote = (event) => {
 //----------------------- addEventListeners ---------------//
 
 submitButton.addEventListener('click', submitRequest)
-quoteButton.addEventListener('click', getQuote)
+quoteButton.addEventListener('click', submitQuote)
 
 
 //-----------------------------notes----------------------
