@@ -19,14 +19,19 @@ const submitButton = document.querySelector('.submit-button')
 const mainPage = document.querySelector('.main-page')
 const loginPage = document.querySelector('.login')
 const signInButton = document.querySelector('.login-button')
+const username = document.querySelector('#username')
+const password = document.querySelector('#password')
+const loginError = document.querySelector('.login-error')
 
 //-----------------------global variables ---------------//
 let currentTraveler;
 let allDestinations = [];
 let travelers;
+let currentUserID;
 
 //-----------------------functions ---------------//
 
+//------- login ---------//
 const hide = (section) => {
   section.classList.toggle('hidden')
 }
@@ -35,11 +40,39 @@ const show = (section) => {
   section.classList.toggle('hidden')
 }
 
-const hideLoginPage = (event) => {
-  event.preventDefault()
+const hideLoginPage = () => {
   hide(login)
   show(mainPage)
+  renderPage()
 }
+
+const findUserID = (event) => {
+  event.preventDefault()
+  currentUserID = username.value.slice(8)
+  console.log(currentUserID)
+  verifyUser()
+}
+
+const verifyUser = () => {
+  // let username = username.value.split('')
+  // let letters = username.slice(0,8).join('')
+  // let numbres = username.slice(8, 10).join('')
+  let userLogin = username.value.slice(0, 8)
+  console.log(userLogin)
+
+  //WILL NEED THIS CONDITIONAL BEFORE
+  // if (userLogin.includes('traveler') && password.value === 'travel') {
+    hideLoginPage(currentUserID)
+  // }
+
+
+  // } else {
+  //   loginError.innerText = "Whoops"
+  // }
+}
+
+//----------------------//
+
 
 // const getRandomTraveler = array => {
 //   return array[Math.floor(Math.random() * array.length)];
@@ -54,7 +87,8 @@ const generateNewTraveler = (travelerRawData) => {
   // console.log(travelerRawData.travelers)
 
   travelers = travelerRawData.travelers.map(traveler => new Traveler(traveler));
-  currentTraveler = travelers[0]
+  currentTraveler = travelers[currentUserID]
+
 
   // currentTraveler = new Traveler(randomTraveler)
   // console.log(currentTraveler)
@@ -112,7 +146,7 @@ const renderPage = () => {
 //----------------------------scripts -----------------
 // window.onload = (event) => (event, renderPage());
 window.addEventListener("load", renderPage)
-signInButton.addEventListener("click", hideLoginPage)
+
 //the next function in the add eveent listener
 
 //---------------------------- POSTS -----------------
@@ -173,7 +207,7 @@ const getQuote = () => {
 
 submitButton.addEventListener('click', submitRequest)
 quoteButton.addEventListener('click', submitQuote)
-
+signInButton.addEventListener("click", findUserID)
 
 //-----------------------------notes----------------------
 // do fetch
