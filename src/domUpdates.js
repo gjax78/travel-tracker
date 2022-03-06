@@ -9,9 +9,8 @@ const dateInput = document.querySelector('.departure-date')
 const destinationInput = document.querySelector('.destination')
 const durationInput = document.querySelector('.duration')
 const travelersInput = document.querySelector('.total-travelers')
-
 const requiredDate = document.querySelector('.date-input-field-required')
-
+const loginError = document.querySelector('.login-error')
 
 let domUpdates = {
   updateWelcomeMessage(firstName) {
@@ -60,7 +59,11 @@ let domUpdates = {
     durationInput.value = ''
     travelersInput.value = ''
     destinationDropdown.value = ''
-  }
+  },
+
+  displayLoginError() {
+    loginError.innerText = "Incorrect username or password. Please try again."
+  },
 
 }
 
