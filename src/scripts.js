@@ -47,10 +47,11 @@ const hideLoginPage = () => {
 }
 
 const findUserID = (event) => {
-  event.preventDefault()
-  currentUserID = username.value.slice(8)
-  console.log(currentUserID)
-  verifyUser()
+  if (username.value && password.value) {
+    event.preventDefault()
+    currentUserID = username.value.slice(8)
+    verifyUser()
+  }
 }
 
 const verifyUser = () => {
