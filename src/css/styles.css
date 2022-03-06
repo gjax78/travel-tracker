@@ -1,12 +1,12 @@
-html {
+html, body {
   height: 100%;
   width: 100%;
   background-color: white;
 }
 
-.wrapper {
+/* .wrapper {
   height: 100%;
-}
+} */
 
 .login {
   display: flex;
@@ -18,11 +18,14 @@ html {
 }
 
 .login-box {
+  height: 50%;
+  width: 40%;
   border: 3px solid red;
 }
 
 .login-details {
   text-align: center;
+  padding-top: 85px;
   flex-direction: column;
 }
 
