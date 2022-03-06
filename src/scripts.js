@@ -62,7 +62,9 @@ const verifyUser = () => {
 
   //WILL NEED THIS CONDITIONAL BEFORE
   // if (userLogin.includes('traveler') && password.value === 'travel') {
+  if ((userLogin === 'traveler') && (-1 < currentUserID && currentUserID < 50)) {
     hideLoginPage(currentUserID)
+  }
   // }
 
 
@@ -82,13 +84,13 @@ const verifyUser = () => {
 //generating the destinations by bringing in the traveler from the api
 //the travelerRawData is the entire API information
 const generateNewTraveler = (travelerRawData) => {
-  console.log(travelerRawData)
+  // console.log(travelerRawData)
   // const randomTraveler = getRandomTraveler(travelerRawData.travelers);
   // console.log(travelerRawData.travelers)
 
   travelers = travelerRawData.travelers.map(traveler => new Traveler(traveler));
   currentTraveler = travelers[currentUserID]
-
+  console.log(currentTraveler)
 
   // currentTraveler = new Traveler(randomTraveler)
   // console.log(currentTraveler)
@@ -106,6 +108,7 @@ const generateTravelerTrips = (tripRawData) => {
     // allTrips.push(trip)
     // console.log(tripRawData)
     currentTraveler.travelerAllTrips(tripRawData.trips)
+    console.log(currentTraveler.trips)
   // })
   // console.log(currentTraveler)
   // console.log(currentTraveler.trips)
