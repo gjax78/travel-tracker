@@ -20,6 +20,7 @@ class Traveler {
   }
 
   getDestinations(destination) {
+    // console.log(destination)
     this.trips.forEach(trip => {
       if (trip.destinationId === destination.id) {
         trip.destination = new Destination(destination)
