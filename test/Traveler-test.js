@@ -17,24 +17,6 @@ describe('Traveler', () => {
   let tripsData;
   let destinationData;
 
-  // const findTravelerTrips = (traveler) => {
-  //   tripsData.forEach(trip => {
-  //     let newTrip = new Trip(trip)
-  //     traveler.travelerAllTrips(newTrip)
-  //   })
-  // }
-  //
-  //
-  // const getNewDestinations = (traveler) => {
-  //   // console.log(destination)
-  //   destinationData.forEach(destination => {
-  //     let newDestination = new Destination(destination)
-  //     traveler.getDestinations(newDestination)
-  //   })
-  // }
-  //
-
-
   beforeEach(() => {
     travelerData = testData.travelers
     tripsData = testData.trips
@@ -99,8 +81,8 @@ describe('Traveler', () => {
   })
 
   it ('should get this years approved trips', () => {
-    traveler1.travelerAllTrips(tripsData)
     traveler1.getThisYearsApprovedTrips()
+    traveler1.travelerAllTrips(tripsData)
     expect(traveler1.trips).to.deep.equal([{
       date: "2022/09/16",
       destination: {},
@@ -137,5 +119,10 @@ describe('Traveler', () => {
     ])
   })
 
-  // test the trips.destination = {}
+  it ('should return total amount spent this year', () => {
+    traveler1.travelerAllTrips(tripsData)
+    traveler1.getThisYearsApprovedTrips()
+    traveler1.totalSpentThisYear()
+    expect(traveler1.totalSpentThisYear()).to.eql(NaN)
+  })
 });
