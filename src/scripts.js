@@ -16,7 +16,9 @@ const durationInput = document.querySelector('.duration')
 const travelersInput = document.querySelector('.total-travelers')
 const quoteButton = document.querySelector('.quote-button')
 const submitButton = document.querySelector('.submit-button')
-
+const mainPage = document.querySelector('.main-page')
+const loginPage = document.querySelector('.login')
+const signInButton = document.querySelector('.login-button')
 
 //-----------------------global variables ---------------//
 let currentTraveler;
@@ -24,6 +26,20 @@ let allDestinations = [];
 let travelers;
 
 //-----------------------functions ---------------//
+
+const hide = (section) => {
+  section.classList.toggle('hidden')
+}
+
+const show = (section) => {
+  section.classList.toggle('hidden')
+}
+
+const hideLoginPage = (event) => {
+  event.preventDefault()
+  hide(login)
+  show(mainPage)
+}
 
 // const getRandomTraveler = array => {
 //   return array[Math.floor(Math.random() * array.length)];
@@ -96,7 +112,8 @@ const renderPage = () => {
 //----------------------------scripts -----------------
 // window.onload = (event) => (event, renderPage());
 window.addEventListener("load", renderPage)
-
+signInButton.addEventListener("click", hideLoginPage)
+//the next function in the add eveent listener
 
 //---------------------------- POSTS -----------------
 const requestTrip = () => {
