@@ -10,6 +10,8 @@ const destinationInput = document.querySelector('.destination')
 const durationInput = document.querySelector('.duration')
 const travelersInput = document.querySelector('.total-travelers')
 
+const requiredDate = document.querySelector('.date-input-field-required')
+
 
 let domUpdates = {
   updateWelcomeMessage(firstName) {
