@@ -26,6 +26,11 @@ html {
   flex-direction: column;
 }
 
+.hidden {
+  display: none!important;
+}
+
+
 button:hover {
   opacity: 0.8;
 }
