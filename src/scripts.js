@@ -21,20 +21,26 @@ const submitButton = document.querySelector('.submit-button')
 //-----------------------global variables ---------------//
 let currentTraveler;
 let allDestinations = [];
+let travelers;
 
 //-----------------------functions ---------------//
 
-const getRandomTraveler = array => {
-  return array[Math.floor(Math.random() * array.length)];
-};
+// const getRandomTraveler = array => {
+//   return array[Math.floor(Math.random() * array.length)];
+// };
 
 
 //generating the destinations by bringing in the traveler from the api
 //the travelerRawData is the entire API information
 const generateNewTraveler = (travelerRawData) => {
-  const randomTraveler = getRandomTraveler(travelerRawData.travelers);
+  console.log(travelerRawData)
+  // const randomTraveler = getRandomTraveler(travelerRawData.travelers);
   // console.log(travelerRawData.travelers)
-  currentTraveler = new Traveler(randomTraveler)
+
+  travelers = travelerRawData.travelers.map(traveler => new Traveler(traveler));
+  currentTraveler = travelers[0]
+
+  // currentTraveler = new Traveler(randomTraveler)
   // console.log(currentTraveler)
   // return currentTraveler
   let firstName = currentTraveler.name.split(' ')[0]
@@ -110,6 +116,7 @@ const requestTrip = () => {
     .then(() => {
       domUpdates.clearForm()
     })
+  renderPage()
 }
 
 const submitRequest = (e) => {
