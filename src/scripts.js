@@ -62,7 +62,7 @@ const verifyUser = () => {
 
   //WILL NEED THIS CONDITIONAL BEFORE
   // if (userLogin.includes('traveler') && password.value === 'travel') {
-  if ((userLogin === 'traveler') && (-1 < currentUserID && currentUserID < 50)) {
+  if ((userLogin === 'traveler') && (-1 < currentUserID && currentUserID < 50) && (password.value === 'traveler')) {
     hideLoginPage(currentUserID)
   }
   // }
