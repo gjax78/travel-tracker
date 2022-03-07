@@ -22,12 +22,12 @@ let domUpdates = {
     trips.sort((a, b) => a.date - b.date)
     console.log(trips)
     trips.forEach(trip => {
-      if (trip.date > "2022/01/01") {
+      if (trip.date > "2022/01/01" && trip.date < "2022/12/31") {
       cardSection.innerHTML +=
       `
       <article class="card">
         <h4 class="card-destination">${trip.destination.name}</h4>
-        <p class="card-status">Your trip is currently ${trip.status}. Please wait for an agent to approve.</p>
+        <p class="card-status">Your trip is currently ${trip.status}.</p>
         <img class="card-image" src="${trip.destination.image}" alt="alt-text">
         <p class="card-travelers">Number of travelers: ${trip.travelers}</p>
         <p class="card-date">Starting date requested: ${trip.date}</p>
