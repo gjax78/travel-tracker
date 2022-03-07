@@ -52,6 +52,11 @@ img {
   border-radius: 5px;
 }
 
+.login-error {
+  Font-Family: 'Source Sans Pro', Sans-Serif;
+  Font-Size: 13px;
+}
+
 .hidden {
   display: none!important;
 }
