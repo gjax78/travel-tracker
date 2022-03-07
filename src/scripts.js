@@ -20,6 +20,9 @@ const loginPage = document.querySelector('.login')
 const signInButton = document.querySelector('.login-button')
 const username = document.querySelector('#username')
 const password = document.querySelector('#password')
+const totalSpent = document.querySelector('.total-spent')
+const postSubmitted = document.querySelector('#submit-post')
+
 
 //-----------------------global variables ---------------//
 let currentTraveler;
@@ -43,6 +46,12 @@ const hideLoginPage = () => {
   show(mainPage)
   renderPage()
 }
+
+// //after hitting submit Button, I want to hide the Total spend p tag
+// const hideTotalSpend = () => {
+//   hide(totalSpent)
+//   // show(domUpdates.submitPost())
+// }
 
 const findUserID = (event) => {
   if (username.value && password.value) {
@@ -71,7 +80,7 @@ const generateNewTraveler = (travelerRawData) => {
 }
 
 const generateTravelerTrips = (tripRawData) => {
-    currentTraveler.travelerAllTrips(tripRawData.trips)
+  currentTraveler.travelerAllTrips(tripRawData.trips)
 }
 
 const generateTripDestinations = (destinationRawData) => {
@@ -116,6 +125,7 @@ const requestTrip = () => {
   fetchAPI.postData(tripRequest)
     .then(() => {
       domUpdates.clearForm()
+      // hideTotalSpend()
       renderPage()
     })
 }
