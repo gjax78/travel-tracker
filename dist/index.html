@@ -5,22 +5,24 @@
   <title>Travel Tracker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Source+Sans+Pro" rel="stylesheet">
 </head>
 <body>
 
+  <!-- <h1>TRAVEL TRACKER</h1> -->
   <section class="login" id="login">
-    <h1>TRAVEL TRACKER</h1>
+    <img src="https://user-images.githubusercontent.com/88151743/157051319-18a97d3d-c0c6-427d-a451-6c6c72f39836.jpg" alt="palm-tree-leaves">
     <div class="login-box">
       <form class="login-details" id="loginDetails">
-        <h2>Please sign in. The world awaits...</h2>
+        <h2>THE WORLD AWAITS...</h2>
         <div class="user-login-inputs">
           <label for="username">Username:</label><br>
-          <input type="username" id="username" name="username" required><br>
+          <input type="username" id="username" name="username" required><br><br>
           <label for="password">Password:</label><br>
           <input type="password" id="password" name="password" required>
         </div>
-        <p class="login-error" id="loginError"></p>
-        <button class="login-button" id="loginBtn">Sign in</button>
+        <p class="login-error" class="login-error" id="loginError"></p>
+        <button class="login-button" id="loginBtn">Let's go</button>
       </form>
     </div>
   </section>
@@ -28,12 +30,14 @@
 <div class="wrapper">
 <main class="main-page hidden">
   <header class="header">
-    <h1>Travel Tracker</h1>
+    <!-- <h1>Travel Tracker</h1> -->
+    <!-- <img class="header-image" src="https://user-images.githubusercontent.com/88151743/157051319-18a97d3d-c0c6-427d-a451-6c6c72f39836.jpg" alt="palm-tree-leaves"> -->
     <h2 class="welcome-text">Welcome, Traveler</h2>
   </header>
-    <section id="left-side">
+  <div class="wrapper-main">
+    <section class="left-side" id="left-side">
       <aside class="travel-form" id="travel-form">
-        <h3>Book Your Trip:</h3>
+        <h3 class="book-trip">Book Your Trip:</h3>
         <form class="form" id="form">
           <label for="departure-date">Select Departure Date</label>
           <input type="date" name="departure-date" class="departure-date" id="departure-date" min="2022-03-01"required>
@@ -48,19 +52,19 @@
             <p class="hidden" id="quote"></p>
           <button name="button" class="submit-button" id="submit-button">Submit Travel Request</button>
           <aside class="travel-total" id="travel-total">
-            <h4 class="total-spent">Total Travel Spend</h4>
+            <h5 class="total-spent">Total Travel Spend</h5>
           </aside>
         </form>
       </aside>
     </section>
     <div id="trips-container">
-      <section id="trips-button-container">
+      <!-- <section id="trips-button-container">
         <button name="button" class="all-travel-button" id="all-travel-button">All Travel</button>
         <button name="button" class="past-travel-button" id="past-travel-button">Past Travel</button>
         <button name="button" class="present-travel-button" id="present-travel-button">Present Travel</button>
         <button name="button" class="upcoming-travel-button" id="upcoming-travel-button">Upcoming Travel</button>
         <button name="button" class="pending-travel-button" id="pending-travel-button">Pending Travel</button>
-      </section>
+      </section> -->
       <section class="all-trips">
         <h3>Your Trips:</h3>
         <section class="card-grid">
@@ -77,6 +81,7 @@
         </section>
       </section>
     </div>
+  </div>
   </main>
 </div>
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
