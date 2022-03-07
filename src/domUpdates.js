@@ -14,7 +14,7 @@ const loginError = document.querySelector('.login-error')
 
 let domUpdates = {
   updateWelcomeMessage(firstName) {
-    welcomeMessage.innerText = `Welcome, ${firstName}!`
+    welcomeMessage.innerText = `Welcome, ${firstName}.`
   },
 
   updateTrips(trips) {
