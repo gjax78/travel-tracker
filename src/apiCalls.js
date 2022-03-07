@@ -1,3 +1,5 @@
+import domUpdates from './domUpdates';
+
 const fetchAPI = {
   fetchData(extension) {
     console.log(extension)
@@ -16,7 +18,7 @@ const fetchAPI = {
       if(!response.ok) {
         throw new Error('Please fill out all fields in the form.')
       } else {
-        alert('Thanks for your submission. Please wait for the agent to approve.')
+        domUpdates.submitPost()
         return response.json()
       }
     })
