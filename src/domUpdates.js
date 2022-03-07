@@ -19,22 +19,46 @@ let domUpdates = {
 
   updateTrips(trips) {
     cardSection.innerHTML = ' '
+    trips.sort((a, b) => a.date - b.date)
+    console.log(trips)
     trips.forEach(trip => {
+      if (trip.date > "2022/01/01") {
       cardSection.innerHTML +=
       `
       <article class="card">
         <h4 class="card-destination">${trip.destination.name}</h4>
+        <p class="card-status">Your trip is currently ${trip.status}. Please wait for an agent to approve.</p>
         <img class="card-image" src="${trip.destination.image}" alt="alt-text">
         <p class="card-travelers">Number of travelers: ${trip.travelers}</p>
-        <p class="card-date">Starting date: ${trip.date}</p>
-        <p class="card-duration">Number of nights: ${trip.duration}</p>
+        <p class="card-date">Starting date requested: ${trip.date}</p>
+        <p class="card-duration">Number of nights requested: ${trip.duration}</p>
         <p class="card-lodging">Nightly cost: $${trip.destination.lodging}</p>
-        <p class="card-flights">Estimated flight cost: $${trip.destination.flights}</p>
-        <p class="card-status">${trip.status}</p>
+        <p class="card-flights">Estimated flight cost per person: $${trip.destination.flights}</p>
       </article>
       `
+    } else {
+      cardSection.innerHTML +=
+      `
+      <article class="card">
+        <h4 class="card-destination">${trip.destination.name}</h4>
+        <p class="card-status">This trip has passed.</p>
+        <img class="card-image" src="${trip.destination.image}" alt="alt-text">
+        <p class="card-date">Departure date: ${trip.date}</p>
+        <p class="card-duration">Number of nights: ${trip.duration}</p>
+        <p class="card-lodging">Nightly cost was: $${trip.destination.lodging}</p>
+        <p class="card-flights">Your flight cost per person was: $${trip.destination.flights}</p>
+      </article>
+      `
+      }
     })
   },
+
+  // updateCardStatus(trips) {
+  //   cardSection.innerHTML = ' '
+  //   trips.forEach(trip => {
+  //     if (trip.status === 'pending')
+  //     cardSection.innerHTML +=
+  // }
 
   updateTotalSpent(currentTraveler) {
     totalSpent.innerText = `This year's total spend: $${currentTraveler.totalSpentThisYear()}
