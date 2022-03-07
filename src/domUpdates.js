@@ -23,7 +23,7 @@ let domUpdates = {
       cardSection.innerHTML +=
       `
       <article class="card">
-        <h3 class="card-destination">${trip.destination.name}</h3>
+        <h4 class="card-destination">${trip.destination.name}</h4>
         <img class="card-image" src="${trip.destination.image}" alt="alt-text">
         <p class="card-travelers">Number of travelers: ${trip.travelers}</p>
         <p class="card-date">Starting date: ${trip.date}</p>

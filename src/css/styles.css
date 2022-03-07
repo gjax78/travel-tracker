@@ -86,6 +86,7 @@ img {
   background: white;
   color: black;
   border-radius: 5px;
+  margin-top: 5px;
 }
 
 .login-error {
@@ -108,10 +109,9 @@ header {
   Font-Size: 20px;
   border: 3px solid black;
 }
-
-/* .header-image {
-  height: 200px;
-  width: 100%;
+/*
+.header-image {
+  position: absolute;
 } */
 
 .welcome-text {
@@ -137,6 +137,13 @@ header {
 
 h3 {
   Font-Family: 'Playfair Display', Serif;
+  Font-Size: 30px;
+  color: #c2a500;
+  text-align: center;
+}
+
+h4 {
+  Font-Family: 'Playfair Display', Serif;
   Font-Size: 20px;
   color: #c2a500;
   text-align: center;
@@ -150,7 +157,7 @@ h3 {
   Font-Size: 15px;
   color: #c2a500;
   background: white;
-  padding-top: 3%;
+  padding-top: 1%;
   /* width: 900px; */
   /* display: flex; */
   /* flex-direction: row; */
@@ -179,7 +186,7 @@ h3 {
   margin-left: 10%;
   border-radius: 5px;
   background: black;
-  padding: 5px;
+  padding: 15px;
   align-items: center;
 
   filter: blur(0.4px);
@@ -204,6 +211,7 @@ h3 {
   display: flex;
   flex-direction: column;
   float: left;
+  font-size: 20px;
 }
 
 .departure-date, .duration, .total-travelers, .destination {
@@ -237,19 +245,22 @@ h3 {
   /* width: 69.7%; */
   /* height: 563px; */
   /* padding: 3% 0; */
-  border:1px solid black;
   height: 77.8vh;
-padding-top: 5%;
+  padding-top: 1%;
+  overflow-y: scroll;
 }
 
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 6%;
+  grid-column-gap: 3%;
   grid-row-gap: 7%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* height: 100%; */
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 170px;
 }
 
 .card {
@@ -258,10 +269,29 @@ padding-top: 5%;
   justify-content: center;
   /* height: 40%; */
   width: 88%;
-  border: 2px solid;
+  /* border: 2px solid; */
   border-radius: 5px;
   /* margin-bottom: 5px; */
   font-size: 15px;
+  background: black;
+  color: #c2a500;
+
+  filter: blur(0.4px);
+    box-shadow:
+    /*bottom shadow*/
+    0px 20px 20px rgba(0,0,0,0.2),
+    0px 5px 10px rgba(0,0,0,0.2),
+    /*long bottom shadow*/
+    0px 70px 50px rgba(0,0,0,0.4),
+    /*right shadow*/
+    30px 50px 50px rgba(0,0,0,0.2),
+    /*left shadow*/
+    -30px 50px 50px rgba(0,0,0,0.2),
+    /*right inset*/
+    inset 20px 0px 60px rgba(0,0,0,0.1),
+    /*left inset*/
+    inset -20px 0px 60px rgba(0,0,0,0.1);
+
 }
 
 /* .card-travelers {
@@ -272,4 +302,5 @@ padding-top: 5%;
 .card-image {
   width: 100%;
   height: 90%;
+  border-radius: 5px;
 }
