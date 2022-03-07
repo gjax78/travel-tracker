@@ -7,6 +7,10 @@ html, body {
 /* .wrapper {
   height: 100%;
 } */
+img {
+  height: 100%;
+  width: 100%;
+}
 
 .login {
   display: flex;
@@ -19,20 +23,38 @@ html, body {
 
 .login-box {
   height: 50%;
-  width: 40%;
-  border: 3px solid red;
+  width: 30%;
+  background: white;
+  color: #c2a500;
+  position: absolute;
+  border-radius: 10px;
 }
 
 .login-details {
   text-align: center;
-  padding-top: 85px;
+  padding-top: 15%;
   flex-direction: column;
+  Font-Family: 'Playfair Display', Serif;
+  Font-Size: 20px;
+}
+
+.user-login-inputs {
+  Font-Family: 'Source Sans Pro', Sans-Serif;
+  Font-Size: 17px;
+  color: black;
+}
+
+.login-button {
+  Font-Family: 'Source Sans Pro', Sans-Serif;
+  Font-Size: 15px;
+  background: black;
+  color: white;
+  border-radius: 5px;
 }
 
 .hidden {
   display: none!important;
 }
-
 
 button:hover {
   opacity: 0.8;
