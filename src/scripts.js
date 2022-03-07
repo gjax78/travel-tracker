@@ -159,8 +159,8 @@ const requestTrip = () => {
   fetchAPI.postData(tripRequest)
     .then(() => {
       domUpdates.clearForm()
+      renderPage()
     })
-  renderPage()
 }
 
 const submitRequest = (e) => {
