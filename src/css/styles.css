@@ -20,9 +20,6 @@ p {
   margin: 2px;
   text-align: center;
 }
-/* .wrapper {
-  height: 100%;
-} */
 
 /* -------------------- LOGIN PAGE ------------------- */
 
@@ -49,20 +46,13 @@ img {
   border-radius: 10px;
   filter: blur(0.4px);
     box-shadow:
-    /*bottom shadow*/
     0px 20px 20px rgba(0,0,0,0.2),
     0px 5px 10px rgba(0,0,0,0.2),
-    /*long bottom shadow*/
     0px 70px 50px rgba(0,0,0,0.4),
-    /*right shadow*/
     30px 50px 50px rgba(0,0,0,0.2),
-    /*left shadow*/
     -30px 50px 50px rgba(0,0,0,0.2),
-    /*right inset*/
     inset 20px 0px 60px rgba(0,0,0,0.1),
-    /*left inset*/
     inset -20px 0px 60px rgba(0,0,0,0.1);
-
 }
 
 .login-details {
@@ -100,8 +90,6 @@ header {
   display: flex;
   flex-direction: row;
   text-align: left;
-  /* padding-left: 2%; */
-  /* background: url(https://user-images.githubusercontent.com/88151743/157051319-18a97d3d-c0c6-427d-a451-6c6c72f39836.jpg) */
   color: #c2a500;
   height: 20%;
   width: 100%;
@@ -109,10 +97,6 @@ header {
   Font-Size: 20px;
   height: 115px;
 }
-/*
-.header-image {
-  position: absolute;
-} */
 
 .welcome-text {
   width: 100%;
@@ -124,7 +108,6 @@ header {
   Font-Size: 38px;
   background: url(https://user-images.githubusercontent.com/88151743/157051319-18a97d3d-c0c6-427d-a451-6c6c72f39836.jpg);
   background-size: cover;
-  /* height: 20%; */
   margin: 0px;
 }
 
@@ -135,7 +118,6 @@ header {
   display: flex;
   flex-direction: row;
   height: 85vh;
-  /* width: 100%; */
 }
 
 /* -------------------- LEFT SIDE / FORM ------------------- */
@@ -155,7 +137,6 @@ h4 {
 }
 
 .left-side {
-  /* display: flex; */
   padding-left: 10px;
   width: 200%;
   Font-Family: 'Source Sans Pro', Sans-Serif;
@@ -163,12 +144,6 @@ h4 {
   color: #c2a500;
   background: white;
   padding-top: 1%;
-  /* width: 900px; */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: center; */
-  /* height: 100%;
-  width: 25%; */
 }
 
 .book-trip {
@@ -183,33 +158,21 @@ h4 {
 .form {
   display: flex;
   flex-direction: column;
-  /* float: left; */
   grid-gap: 15px;
-  /* width: 100%; */
-  /* padding: 7% 0; */
-  /* border:1px solid black; */
   margin-left: 10%;
   border-radius: 5px;
   background: black;
   padding: 15px;
   align-items: center;
-
   filter: blur(0.4px);
     box-shadow:
-    /*bottom shadow*/
     0px 20px 20px rgba(0,0,0,0.2),
     0px 5px 10px rgba(0,0,0,0.2),
-    /*long bottom shadow*/
     0px 70px 50px rgba(0,0,0,0.4),
-    /*right shadow*/
     30px 50px 50px rgba(0,0,0,0.2),
-    /*left shadow*/
     -30px 50px 50px rgba(0,0,0,0.2),
-    /*right inset*/
     inset 20px 0px 60px rgba(0,0,0,0.1),
-    /*left inset*/
     inset -20px 0px 60px rgba(0,0,0,0.1);
-
 }
 
 .travel-total {
@@ -219,17 +182,20 @@ h4 {
   font-size: 20px;
 }
 
-.departure-date, .duration, .total-travelers, .destination {
+.departure-date,
+.duration,
+.total-travelers,
+.destination {
   Font-Family: 'Source Sans Pro', Sans-Serif;
   width: 75%;
 }
 
-.quote-button, .submit-button {
+.quote-button,
+.submit-button {
   Font-Family: 'Source Sans Pro', Sans-Serif;
   Font-Size: 15px;
   width: 60%;
 }
-
 
 /* -------------------- CARD GRID ------------------- */
 
@@ -239,30 +205,21 @@ h4 {
   justify-content: center;
   height: 100%;
   width: 50%;
-  /* padding-left: 30%; */
 }
 
 .all-trips {
   display: flex;
   flex-direction: column;
-  /* float: left; */
-  /* grid-gap: 15px; */
-  /* width: 69.7%; */
-  /* height: 563px; */
-  /* padding: 3% 0; */
   height: 77.8vh;
   padding-top: 1%;
   overflow-y: scroll;
 }
-
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 3%;
   grid-row-gap: 7%;
-  /* border: 1px solid red; */
-  /* height: 100%; */
   padding-left: 70px;
   padding-right: 70px;
   padding-bottom: 170px;
@@ -272,37 +229,21 @@ h4 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* height: 40%; */
   width: 88%;
-  /* border: 2px solid; */
   border-radius: 5px;
-  /* margin-bottom: 5px; */
   font-size: 15px;
   background: black;
   color: #c2a500;
-
   filter: blur(0.4px);
     box-shadow:
-    /*bottom shadow*/
     0px 20px 20px rgba(0,0,0,0.2),
     0px 5px 10px rgba(0,0,0,0.2),
-    /*long bottom shadow*/
     0px 70px 50px rgba(0,0,0,0.4),
-    /*right shadow*/
     30px 50px 50px rgba(0,0,0,0.2),
-    /*left shadow*/
     -30px 50px 50px rgba(0,0,0,0.2),
-    /*right inset*/
     inset 20px 0px 60px rgba(0,0,0,0.1),
-    /*left inset*/
     inset -20px 0px 60px rgba(0,0,0,0.1);
-
 }
-
-/* .card-travelers {
-  Font-Family: 'Source Sans Pro', Sans-Serif;
-  font-size: 5px;
-} */
 
 .card-destination {
   margin: 15px;
