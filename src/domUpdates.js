@@ -52,20 +52,12 @@ let domUpdates = {
     })
   },
 
-  // updateCardStatus(trips) {
-  //   cardSection.innerHTML = ' '
-  //   trips.forEach(trip => {
-  //     if (trip.status === 'pending')
-  //     cardSection.innerHTML +=
-  // }
-
   updateTotalSpent(currentTraveler) {
     totalSpent.innerText = `This year's total spend: $${currentTraveler.totalSpentThisYear()}
      (including agent fee of 10%)`
   },
 
   updateDestinationsDropDown(destination) {
-    // console.log(destination)
     const newElement = document.createElement('option')
     newElement.innerText = destination.destination
     newElement.value = destination.destination
@@ -88,9 +80,6 @@ let domUpdates = {
   displayLoginError() {
     loginError.innerText = "Incorrect username or password. Please try again."
   },
-
 }
-
-
 
 export default domUpdates;
