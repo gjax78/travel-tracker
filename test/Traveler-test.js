@@ -41,16 +41,23 @@ describe('Traveler', () => {
 
   it('should have an id', () => {
     expect(traveler1.id).to.equal(1);
+    expect(traveler4.id).to.equal(4);
+    expect(traveler5.id).to.equal(44);
+    expect(traveler2.id).to.equal(2);
   })
 
   it('should have a name', () => {
     expect(traveler1.name).to.equal('Ham Leadbeater');
     expect(traveler2.name).to.equal('Rachael Vaughten');
+    expect(traveler3.name).to.equal('Sibby Dawidowitsch');
+    expect(traveler4.name).to.equal('Leila Thebeaud');
   })
 
   it('should have a type', () => {
     expect(traveler1.type).to.equal('relaxer');
     expect(traveler3.type).to.equal('shopper');
+    expect(traveler2.type).to.equal('thrill-seeker');
+    expect(traveler5.type).to.equal('thrill-seeker');
   })
 
   it('should hold all the travelers trips', () => {
@@ -63,6 +70,8 @@ describe('Traveler', () => {
     expect(traveler1.trips).to.have.lengthOf(3)
     traveler2.travelerAllTrips(tripsData)
     expect(traveler4.trips).to.have.lengthOf(0)
+    traveler3.travelerAllTrips(tripsData)
+    expect(traveler3.trips).to.have.lengthOf(0)
   })
 
   it ('should add a destinations property to their trip', () => {
