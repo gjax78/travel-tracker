@@ -100,12 +100,27 @@ header {
 
 /* -------------------- LEFT SIDE / FORM ------------------- */
 
-.left-side {
+.wrapper-main {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 50%;
+  flex-direction: row;
+  width: 100%;
+}
+
+
+.left-side {
+  /* display: flex; */
+  margin-left: 10px;
+  width: 200%;
+  /* width: 900px; */
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: center; */
+  /* height: 100%;
+  width: 25%; */
+}
+
+.travel-form {
+  width: 70%;
 }
 
 .form {
@@ -113,7 +128,7 @@ header {
   flex-direction: column;
   float: left;
   grid-gap: 15px;
-  width: 30%;
+  /* width: 100%; */
   padding: 3% 0;
   border:1px solid black;
 
@@ -134,15 +149,16 @@ header {
   justify-content: center;
   height: 100%;
   width: 50%;
+  /* padding-left: 30%; */
 }
 
 .all-trips {
   display: flex;
   flex-direction: column;
-  float: left;
+  /* float: left; */
   /* grid-gap: 15px; */
-  width: 69.7%;
-  height: 563px;
+  /* width: 69.7%; */
+  /* height: 563px; */
   /* padding: 3% 0; */
   border:1px solid black;
 }
