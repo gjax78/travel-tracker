@@ -83,7 +83,7 @@ describe('Traveler', () => {
   it ('should get this years approved trips', () => {
     traveler1.getThisYearsApprovedTrips()
     traveler1.travelerAllTrips(tripsData)
-    expect(traveler1.trips).to.deep.equal([{
+    expect(traveler1.getThisYearsApprovedTrips()).to.deep.equal([{
       date: "2022/09/16",
       destination: {},
       destinationId: 49,
@@ -105,17 +105,6 @@ describe('Traveler', () => {
       travelers: 5,
       userId: 1,
     },
-      {
-      date: "2020/05/06",
-      destination: {},
-      destinationId: 26,
-      duration: 11,
-      id: 83,
-      status: "pending",
-      suggestedActivities: [],
-      travelers: 1,
-      userId: 1,
-      }
     ])
   })
 
