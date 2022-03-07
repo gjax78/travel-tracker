@@ -98,7 +98,7 @@ header {
 }
 
 
-/* -------------------- LEFT SIDE / FORM ------------------- */
+/* -------------------- MAIN PAGE/OVERALL ------------------- */
 
 .wrapper-main {
   display: flex;
@@ -106,11 +106,14 @@ header {
   width: 100%;
 }
 
+/* -------------------- LEFT SIDE / FORM ------------------- */
 
 .left-side {
   /* display: flex; */
   margin-left: 10px;
   width: 200%;
+  Font-Family: 'Source Sans Pro', Sans-Serif;
+  Font-Size: 15px;
   /* width: 900px; */
   /* display: flex; */
   /* flex-direction: row; */
@@ -120,24 +123,37 @@ header {
 }
 
 .travel-form {
-  width: 70%;
+  width: 90%;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  float: left;
+  /* float: left; */
   grid-gap: 15px;
   /* width: 100%; */
   padding: 3% 0;
   border:1px solid black;
-
+  margin-left: 7%;
+  border-radius: 5px;
 }
 
 .travel-total {
   display: flex;
   flex-direction: column;
   float: left;
+}
+
+.departure-date, .duration, .total-travelers, .destination {
+  Font-Family: 'Source Sans Pro', Sans-Serif;
+  width: 75%;
+
+}
+
+.quote-button, .submit-button {
+  Font-Family: 'Source Sans Pro', Sans-Serif;
+  Font-Size: 15px;
+  width: 60%;
 }
 
 
