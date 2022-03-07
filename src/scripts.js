@@ -16,14 +16,57 @@ const durationInput = document.querySelector('.duration')
 const travelersInput = document.querySelector('.total-travelers')
 const quoteButton = document.querySelector('.quote-button')
 const submitButton = document.querySelector('.submit-button')
-
+const mainPage = document.querySelector('.main-page')
+const loginPage = document.querySelector('.login')
+const signInButton = document.querySelector('.login-button')
+const username = document.querySelector('#username')
+const password = document.querySelector('#password')
 
 //-----------------------global variables ---------------//
 let currentTraveler;
 let allDestinations = [];
 let travelers;
+let currentUserID;
 
 //-----------------------functions ---------------//
+
+//------- login ---------//
+const hide = (section) => {
+  section.classList.toggle('hidden')
+}
+
+const show = (section) => {
+  section.classList.toggle('hidden')
+}
+
+const hideLoginPage = () => {
+  hide(login)
+  show(mainPage)
+  renderPage()
+}
+
+const findUserID = (event) => {
+  if (username.value && password.value) {
+    event.preventDefault()
+    currentUserID = username.value.slice(8)
+    verifyUser()
+  }
+}
+
+const verifyUser = () => {
+  let userLogin = username.value.slice(0, 8)
+  console.log(userLogin)
+
+  if ((userLogin === 'traveler') && (0 < currentUserID && currentUserID < 51) && (password.value === 'traveler')) {
+    hideLoginPage(currentUserID)
+  // }
+  } else {
+    domUpdates.displayLoginError()
+  }
+}
+
+//----------------------//
+
 
 // const getRandomTraveler = array => {
 //   return array[Math.floor(Math.random() * array.length)];
@@ -33,12 +76,12 @@ let travelers;
 //generating the destinations by bringing in the traveler from the api
 //the travelerRawData is the entire API information
 const generateNewTraveler = (travelerRawData) => {
-  console.log(travelerRawData)
+  // console.log(travelerRawData)
   // const randomTraveler = getRandomTraveler(travelerRawData.travelers);
   // console.log(travelerRawData.travelers)
 
   travelers = travelerRawData.travelers.map(traveler => new Traveler(traveler));
-  currentTraveler = travelers[0]
+  currentTraveler = travelers[currentUserID - 1]
 
   // currentTraveler = new Traveler(randomTraveler)
   // console.log(currentTraveler)
@@ -97,6 +140,7 @@ const renderPage = () => {
 // window.onload = (event) => (event, renderPage());
 window.addEventListener("load", renderPage)
 
+//the next function in the add eveent listener
 
 //---------------------------- POSTS -----------------
 const requestTrip = () => {
@@ -156,7 +200,7 @@ const getQuote = () => {
 
 submitButton.addEventListener('click', submitRequest)
 quoteButton.addEventListener('click', submitQuote)
-
+signInButton.addEventListener("click", findUserID)
 
 //-----------------------------notes----------------------
 // do fetch
