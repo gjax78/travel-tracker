@@ -54,8 +54,24 @@ let domUpdates = {
   },
 
   updateTotalSpent(currentTraveler) {
-    totalSpent.innerText = `This year's total spend: $${currentTraveler.totalSpentThisYear()}
-     (including agent fee of 10%)`
+    if (currentTraveler.totalSpentThisYear() > 500) {
+      totalSpent.innerText = `This year's total travel investment:
+      $${currentTraveler.totalSpentThisYear()} (including agent fee of 10%)
+
+      Congrats ~ you're busy creating a lifetime of memories.`
+    } else {
+      totalSpent.innerText = `This year's total travel investment:
+      $${currentTraveler.totalSpentThisYear()} (including agent fee of 10%)
+
+      It appears you need to book more travel.`
+    }
+    if (currentTraveler.totalSpentThisYear() === 0) {
+      totalSpent.innerText = `This year's total travel investment:
+      $${currentTraveler.totalSpentThisYear()}
+
+      You are in serious need of a vacation.
+      Book the trip.`
+    }
   },
 
   updateDestinationsDropDown(destination) {
