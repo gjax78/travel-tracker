@@ -31,18 +31,25 @@ describe('Destination', () => {
 
   it('should have an id', () => {
      expect(destination1.id).to.equal(1);
+     expect(destination2.id).to.equal(2);
+     expect(destination3.id).to.equal(3);
    })
 
    it('should have a location', () => {
      expect(destination1.name).to.equal("Lima, Peru");
+     expect(destination3.name).to.equal("Sydney, Austrailia");
+     expect(destination2.name).to.equal("Stockholm, Sweden");
    })
 
    it('should have an estimated lodging cost per day', () => {
      expect(destination1.lodging).to.equal(70);
+     expect(destination3.lodging).to.equal(130);
    })
 
    it('should have an estimated flight cost per person', () => {
      expect(destination4.flights).to.equal(350);
+     expect(destination2.flights).to.equal(780);
+     expect(destination1.flights).to.equal(400);
    })
 
    it('should have an image', () => {
@@ -51,6 +58,6 @@ describe('Destination', () => {
 
    it('should have an alt', () => {
      expect(destination3.alt).to.equal("opera house and city buildings on the water with boats");
+     expect(destination4.alt).to.equal("boats at a dock during the day time");
    })
-
 });

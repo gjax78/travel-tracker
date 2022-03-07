@@ -20,7 +20,6 @@ let domUpdates = {
   updateTrips(trips) {
     cardSection.innerHTML = ' '
     trips.sort((a, b) => a.date - b.date)
-    console.log(trips)
     trips.forEach(trip => {
       if (trip.date > "2022/01/01" && trip.date < "2022/12/31") {
       cardSection.innerHTML +=

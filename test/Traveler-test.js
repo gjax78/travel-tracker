@@ -15,6 +15,7 @@ describe('Traveler', () => {
   let destination1;
   let travelerData;
   let tripsData;
+  let trip1;
   let destinationData;
 
   beforeEach(() => {
@@ -26,6 +27,7 @@ describe('Traveler', () => {
     traveler3 = new Traveler(travelerData[2]);
     traveler4 = new Traveler(travelerData[3]);
     traveler5 = new Traveler(travelerData[4]);
+    trip1 = new Trip(tripsData[0])
     destination1 = new Destination(destinationData[0])
   })
 
@@ -39,16 +41,23 @@ describe('Traveler', () => {
 
   it('should have an id', () => {
     expect(traveler1.id).to.equal(1);
+    expect(traveler4.id).to.equal(4);
+    expect(traveler5.id).to.equal(44);
+    expect(traveler2.id).to.equal(2);
   })
 
   it('should have a name', () => {
     expect(traveler1.name).to.equal('Ham Leadbeater');
     expect(traveler2.name).to.equal('Rachael Vaughten');
+    expect(traveler3.name).to.equal('Sibby Dawidowitsch');
+    expect(traveler4.name).to.equal('Leila Thebeaud');
   })
 
   it('should have a type', () => {
     expect(traveler1.type).to.equal('relaxer');
     expect(traveler3.type).to.equal('shopper');
+    expect(traveler2.type).to.equal('thrill-seeker');
+    expect(traveler5.type).to.equal('thrill-seeker');
   })
 
   it('should hold all the travelers trips', () => {
@@ -61,6 +70,8 @@ describe('Traveler', () => {
     expect(traveler1.trips).to.have.lengthOf(3)
     traveler2.travelerAllTrips(tripsData)
     expect(traveler4.trips).to.have.lengthOf(0)
+    traveler3.travelerAllTrips(tripsData)
+    expect(traveler3.trips).to.have.lengthOf(0)
   })
 
   it ('should add a destinations property to their trip', () => {
@@ -83,7 +94,7 @@ describe('Traveler', () => {
   it ('should get this years approved trips', () => {
     traveler1.getThisYearsApprovedTrips()
     traveler1.travelerAllTrips(tripsData)
-    expect(traveler1.trips).to.deep.equal([{
+    expect(traveler1.getThisYearsApprovedTrips()).to.deep.equal([{
       date: "2022/09/16",
       destination: {},
       destinationId: 49,
@@ -105,24 +116,12 @@ describe('Traveler', () => {
       travelers: 5,
       userId: 1,
     },
-      {
-      date: "2020/05/06",
-      destination: {},
-      destinationId: 26,
-      duration: 11,
-      id: 83,
-      status: "pending",
-      suggestedActivities: [],
-      travelers: 1,
-      userId: 1,
-      }
     ])
   })
 
   it ('should return total amount spent this year', () => {
-    traveler1.travelerAllTrips(tripsData)
-    traveler1.getThisYearsApprovedTrips()
-    traveler1.totalSpentThisYear()
-    expect(traveler1.totalSpentThisYear()).to.eql(NaN)
+    traveler2.getThisYearsApprovedTrips()
+    traveler2.travelerAllTrips(tripsData)
+    expect(traveler2.totalSpentThisYear(traveler2)).to.deep.equal(0)
   })
 });
