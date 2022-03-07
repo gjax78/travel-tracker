@@ -30,7 +30,7 @@ let domUpdates = {
         <h4 class="card-destination">${trip.destination.name}</h4>
         <p class="card-status">Your trip is currently ${trip.status}.</p>
         <img class="card-image" src="${trip.destination.image}" alt="alt-text">
-        <p class="card-date">Starting date requested: ${trip.date}</p>
+        <p class="card-date">Departure date requested: ${trip.date}</p>
         <p class="card-duration">Number of nights requested: ${trip.duration}</p>
         <p class="card-lodging">Nightly cost: $${trip.destination.lodging}</p>
         <p class="card-flights">Estimated flight cost per person: $${trip.destination.flights}</p>
