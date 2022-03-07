@@ -11,6 +11,8 @@ const durationInput = document.querySelector('.duration')
 const travelersInput = document.querySelector('.total-travelers')
 const requiredDate = document.querySelector('.date-input-field-required')
 const loginError = document.querySelector('.login-error')
+const postSubmitted = document.querySelector('#submit-post')
+
 
 let domUpdates = {
   updateWelcomeMessage(firstName) {
@@ -28,7 +30,6 @@ let domUpdates = {
         <h4 class="card-destination">${trip.destination.name}</h4>
         <p class="card-status">Your trip is currently ${trip.status}.</p>
         <img class="card-image" src="${trip.destination.image}" alt="alt-text">
-        <p class="card-travelers">Number of travelers: ${trip.travelers}</p>
         <p class="card-date">Starting date requested: ${trip.date}</p>
         <p class="card-duration">Number of nights requested: ${trip.duration}</p>
         <p class="card-lodging">Nightly cost: $${trip.destination.lodging}</p>
@@ -80,6 +81,10 @@ let domUpdates = {
   displayLoginError() {
     loginError.innerText = "Incorrect username or password. Please try again."
   },
+
+  submitPost() {
+    postSubmitted.innerText = "Thank you for submitting a trip. An agent will reach out to approve or deny."
+  }
 }
 
 export default domUpdates;
