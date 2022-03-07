@@ -37,7 +37,8 @@ let domUpdates = {
   },
 
   updateTotalSpent(currentTraveler) {
-    totalSpent.innerText = `This year's total spend: $${currentTraveler.totalSpentThisYear()} (including agent fee of 10%)`
+    totalSpent.innerText = `This year's total spend: $${currentTraveler.totalSpentThisYear()}
+     (including agent fee of 10%)`
   },
 
   updateDestinationsDropDown(destination) {
