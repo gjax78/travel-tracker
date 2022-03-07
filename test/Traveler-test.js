@@ -15,6 +15,7 @@ describe('Traveler', () => {
   let destination1;
   let travelerData;
   let tripsData;
+  let trip1;
   let destinationData;
 
   beforeEach(() => {
@@ -26,6 +27,7 @@ describe('Traveler', () => {
     traveler3 = new Traveler(travelerData[2]);
     traveler4 = new Traveler(travelerData[3]);
     traveler5 = new Traveler(travelerData[4]);
+    trip1 = new Trip(tripsData[0])
     destination1 = new Destination(destinationData[0])
   })
 
@@ -109,9 +111,8 @@ describe('Traveler', () => {
   })
 
   it ('should return total amount spent this year', () => {
-    traveler1.travelerAllTrips(tripsData)
-    traveler1.getThisYearsApprovedTrips()
-    traveler1.totalSpentThisYear()
-    expect(traveler1.totalSpentThisYear()).to.eql(NaN)
+    traveler2.getThisYearsApprovedTrips()
+    traveler2.travelerAllTrips(tripsData)
+    expect(traveler2.totalSpentThisYear(traveler2)).to.deep.equal(0)
   })
 });
