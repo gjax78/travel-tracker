@@ -1,4 +1,4 @@
-import Trip from './Trip'; //bringing this in instead of line 36 in scripts
+import Trip from './Trip';
 import Destination from './Destination';
 
 
@@ -11,7 +11,6 @@ class Traveler {
   }
 
   travelerAllTrips(trips) {
-    // console.log(trips)
     trips.forEach(trip => {
       if (trip.userID === this.id) {
         this.trips.push(new Trip(trip))
@@ -20,7 +19,6 @@ class Traveler {
   }
 
   getDestinations(destination) {
-    // console.log(destination)
     this.trips.forEach(trip => {
       if (trip.destinationId === destination.id) {
         trip.destination = new Destination(destination)
@@ -31,9 +29,7 @@ class Traveler {
   getThisYearsApprovedTrips() {
     const today = Date.now()
     const currentYear = new Date(today).getFullYear()
-    // console.log(this.trips)
     return this.trips.filter(trip => {
-      // console.log(trip)
       return trip.date.includes(currentYear) && (trip.status === 'approved')
     })
   }
@@ -45,12 +41,10 @@ class Traveler {
     tripsThisYear.forEach(trip => {
       eachTripSpend += trip.duration * trip.destination.lodging
       eachTripSpend += trip.travelers * (trip.destination.flights * 2)
-
     })
     totalYearSpend = eachTripSpend + (eachTripSpend * .10)
     return totalYearSpend
   }
-
 }
 
 export default Traveler;
