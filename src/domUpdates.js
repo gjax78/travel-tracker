@@ -21,11 +21,12 @@ let domUpdates = {
 
   updateTrips(trips) {
     cardSection.innerHTML = ' '
+
     trips.sort((a, b) => {
-      return new Date(a.date) - new Date(b.date)
+      return new Date(b.date) - new Date(a.date)
     })
     trips.forEach(trip => {
-      if (trip.date > "2022/01/01" && trip.date < "2022/12/31") {
+      if ((trip.date.includes('2022')) || (trip.date.includes('2023')) || (trip.date.includes('2024'))) {
       cardSection.innerHTML +=
       `
       <article class="card">
