@@ -1,5 +1,4 @@
 import './css/styles.css';
-import './images/turing-logo.png';
 import fetchAPI from './apiCalls'
 import domUpdates from './domUpdates';
 import Traveler from './Traveler';
@@ -7,8 +6,6 @@ import Destination from './Destination';
 import Trip from './Trip';
 
 //-----------------------querySelectors ---------------//
-
-const bookTravelForm = document.querySelector('.form')
 const dateInput = document.querySelector('.departure-date')
 const destinationInput = document.querySelector('.destination')
 const durationInput = document.querySelector('.duration')
@@ -21,8 +18,6 @@ const signInButton = document.querySelector('.login-button')
 const username = document.querySelector('#username')
 const password = document.querySelector('#password')
 const totalSpent = document.querySelector('.total-spent')
-const postSubmitted = document.querySelector('#submit-post')
-
 
 //-----------------------global variables ---------------//
 let currentTraveler;
@@ -96,9 +91,6 @@ const renderPage = () => {
     generateTripDestinations(values[2])
   })
 }
-
-//----------------------------scripts -----------------
-window.addEventListener("load", renderPage)
 
 //---------------------------- POSTS -----------------
 const requestTrip = () => {
