@@ -2,7 +2,6 @@ import domUpdates from './domUpdates';
 
 const fetchAPI = {
   fetchData(extension) {
-    console.log(extension)
     return fetch(`http://localhost:3001/api/v1/${extension}`)
       .then(response => response.json())
       .catch(err => console.log(err))
