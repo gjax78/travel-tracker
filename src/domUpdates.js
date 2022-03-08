@@ -36,7 +36,8 @@ let domUpdates = {
         <p class="card-status">Your trip is currently ${trip.status}.</p>
         <img class="card-image" src="${trip.destination.image}" alt="alt-text">
         <p class="card-date">Departure date requested: ${trip.date}</p>
-        <p class="card-duration">Number of nights requested: ${trip.duration}</p>
+        <p class="card-duration">Travelers: ${trip.travelers}</p>
+        <p class="card-duration">Nights requested: ${trip.duration}</p>
         <p class="card-lodging">Nightly cost: $${trip.destination.lodging}</p>
         <p class="card-flights">Estimated flight cost per person: $${trip.destination.flights}</p>
       </article>
@@ -49,7 +50,8 @@ let domUpdates = {
         <p class="card-status">This trip has passed.</p>
         <img class="card-image" src="${trip.destination.image}" alt="alt-text">
         <p class="card-date">Departure date: ${trip.date}</p>
-        <p class="card-duration">Number of nights: ${trip.duration}</p>
+        <p class="card-duration">Travelers: ${trip.travelers}</p>
+        <p class="card-duration">Nights: ${trip.duration}</p>
         <p class="card-lodging">Nightly cost was: $${trip.destination.lodging}</p>
         <p class="card-flights">Your flight cost per person was: $${trip.destination.flights}</p>
       </article>
