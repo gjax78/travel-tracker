@@ -1,7 +1,8 @@
 const welcomeMessage = document.querySelector('.welcome-text')
 const displayTrips = document.querySelector('.trips')
 const cardImage = document.querySelector('.card-image')
-const cardSection = document.querySelector('.card-grid')
+const cardSectionUpcoming = document.querySelector('.card-grid-upcoming')
+const cardSectionPending = document.querySelector('.card-grid-past')
 const totalSpent = document.querySelector('.total-spent')
 const destinationDropdown = document.querySelector('#destination')
 const tripCost = document.querySelector('#quote')
@@ -12,6 +13,7 @@ const travelersInput = document.querySelector('.total-travelers')
 const requiredDate = document.querySelector('.date-input-field-required')
 const loginError = document.querySelector('.login-error')
 const postSubmitted = document.querySelector('#submit-post')
+const hiddenMessage = document.querySelector('.hidden-message')
 
 
 let domUpdates = {
@@ -20,14 +22,15 @@ let domUpdates = {
   },
 
   updateTrips(trips) {
-    cardSection.innerHTML = ' '
+    cardSectionPending.innerHTML = ' '
+    cardSectionUpcoming.innerHTML = ' '
 
     trips.sort((a, b) => {
-      return new Date(a.date) - new Date(b.date)
+      return new Date(b.date) - new Date(a.date)
     })
     trips.forEach(trip => {
       if ((trip.date.includes('2022')) || (trip.date.includes('2023')) || (trip.date.includes('2024'))) {
-      cardSection.innerHTML +=
+      cardSectionUpcoming.innerHTML +=
       `
       <article class="card">
         <h4 class="card-destination">${trip.destination.name}</h4>
@@ -40,7 +43,7 @@ let domUpdates = {
       </article>
       `
     } else {
-      cardSection.innerHTML +=
+      cardSectionPending.innerHTML +=
       `
       <article class="card">
         <h4 class="card-destination">${trip.destination.name}</h4>
@@ -53,6 +56,34 @@ let domUpdates = {
       </article>
       `
       }
+
+    //   else if ((trip.date.includes('2022')) || (trip.date.includes('2023')) || (trip.date.includes('2024')) && (trip.status === 'approved')) {
+    //   cardSectionUpcoming.innerHTML +=
+    //   `
+    //   <article class="card">
+    //     <h4 class="card-destination">${trip.destination.name}</h4>
+    //     <p class="card-status">Your trip is currently ${trip.status}.</p>
+    //     <img class="card-image" src="${trip.destination.image}" alt="alt-text">
+    //     <p class="card-date">Departure date requested: ${trip.date}</p>
+    //     <p class="card-duration">Number of nights requested: ${trip.duration}</p>
+    //     <p class="card-lodging">Nightly cost: $${trip.destination.lodging}</p>
+    //     <p class="card-flights">Estimated flight cost per person: $${trip.destination.flights}</p>
+    //   </article>
+    //   `
+    // } else {
+    //   cardSectionUpcoming.innerHTML +=
+    //   `
+    //   <article class="card">
+    //     <h4 class="card-destination">${trip.destination.name}</h4>
+    //     <p class="card-status">This trip has passed.</p>
+    //     <img class="card-image" src="${trip.destination.image}" alt="alt-text">
+    //     <p class="card-date">Departure date: ${trip.date}</p>
+    //     <p class="card-duration">Number of nights: ${trip.duration}</p>
+    //     <p class="card-lodging">Nightly cost was: $${trip.destination.lodging}</p>
+    //     <p class="card-flights">Your flight cost per person was: $${trip.destination.flights}</p>
+    //   </article>
+    //   `
+    //   }
     })
   },
 
@@ -76,6 +107,13 @@ let domUpdates = {
       Book the trip.`
     }
   },
+
+  // updateHiddenMessage() {
+  //   if (cardSectionUpcoming.innerHTML.length === 0) {
+  //     hiddenMessage.innerText = `You are in serious need of a vacation.
+  //     Book the trip.`
+  //   }
+  // },
 
   updateDestinationsDropDown(destination) {
     const newElement = document.createElement('option')

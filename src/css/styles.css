@@ -220,14 +220,14 @@ h4 {
   overflow-y: scroll;
 }
 
-.card-grid {
+.card-grid-upcoming, .card-grid-past {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 3%;
   grid-row-gap: 7%;
   padding-left: 70px;
   padding-right: 70px;
-  padding-bottom: 170px;
+  padding-bottom: 50px;
 }
 
 .card {
