@@ -34,7 +34,7 @@ class Traveler {
     })
   }
 
-  totalSpentThisYear() {
+  getTotalSpentThisYear() {
     let eachTripSpend = 0
     let totalYearSpend = 0
     const tripsThisYear = this.getThisYearsApprovedTrips()

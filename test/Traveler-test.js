@@ -122,6 +122,6 @@ describe('Traveler', () => {
   it ('should return total amount spent this year', () => {
     traveler2.getThisYearsApprovedTrips()
     traveler2.getAllTravelerTrips(tripsData)
-    expect(traveler2.totalSpentThisYear(traveler2)).to.deep.equal(0)
+    expect(traveler2.getTotalSpentThisYear(traveler2)).to.deep.equal(0)
   })
 });

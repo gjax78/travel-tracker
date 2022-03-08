@@ -57,20 +57,20 @@ let domUpdates = {
   },
 
   updateTotalSpent(currentTraveler) {
-    if (currentTraveler.totalSpentThisYear() > 500) {
+    if (currentTraveler.getTotalSpentThisYear() > 500) {
       totalSpent.innerText = `This year's total travel investment:
-      $${currentTraveler.totalSpentThisYear()} (including agent fee of 10%)
+      $${currentTraveler.getTotalSpentThisYear()} (including agent fee of 10%)
 
       Congrats ~ you're busy creating a lifetime of memories.`
     } else {
       totalSpent.innerText = `This year's total travel investment:
-      $${currentTraveler.totalSpentThisYear()} (including agent fee of 10%)
+      $${currentTraveler.getTotalSpentThisYear()} (including agent fee of 10%)
 
       It appears you need to book more travel.`
     }
-    if (currentTraveler.totalSpentThisYear() === 0) {
+    if (currentTraveler.getTotalSpentThisYear() === 0) {
       totalSpent.innerText = `This year's total travel investment:
-      $${currentTraveler.totalSpentThisYear()}
+      $${currentTraveler.getTotalSpentThisYear()}
 
       You are in serious need of a vacation.
       Book the trip.`
