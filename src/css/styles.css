@@ -22,6 +22,104 @@ p {
   text-align: center;
 }
 
+
+
+.help {
+  width: 40px;
+  margin: 0 auto;
+  position: absolute;
+  float: right;
+  right: 0px; bottom: 0px;
+  padding-right: 10%;
+  padding-bottom: 5%;
+}
+
+.help .question {
+  height: 40px;
+  width: 40px;
+  background: #c2a500;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.help .popup, .help .popup2 {
+  width: 300px;
+  height: 0px;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  opacity: 0;
+  transition: 1s;
+  Font-Family: 'Source Sans Pro', Sans-Serif;
+  Font-Size: 17px;
+}
+
+.help .popup {
+  left: -260px;
+  top: 10px;
+}
+
+.help .popup2 h4 {
+  font-size: 18px;
+  padding: 10px;
+  margin: 0;
+}
+
+.help:hover .popup {
+  opacity: 1;
+  height: 100px;
+}
+
+.help .tell-me {
+  color: #c2a500;
+  cursor: pointer;
+}
+
+.tell-me {
+  width: 150px;
+}
+
+.help .tell-me:hover .popup2 {
+  top: -220px;
+  opacity: 1;
+}
+
+.help .popup h3 {
+  margin: 0;
+  padding: 10px 0 0 10px;
+  height: 30px;
+  background: black;
+  color: #c2a500;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.help .popup p {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+}
+
+.help .popup .popup2 .sub-levels {
+  padding: 0 0 10px 140px;
+}
+
+.help .popup .popup2 .sub-levels strong {
+  font-size: 20px;
+}
+
+.help .popup .popup2 p:nth-child(5) {
+  padding: 20px 0 0 10px;
+}
+
+
+
+
+
 /* -------------------- LOGIN PAGE ------------------- */
 
 img {
