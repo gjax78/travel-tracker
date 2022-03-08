@@ -1,16 +1,12 @@
 const welcomeMessage = document.querySelector('.welcome-text')
-const displayTrips = document.querySelector('.trips')
-const cardImage = document.querySelector('.card-image')
 const cardSectionUpcoming = document.querySelector('.card-grid-upcoming')
 const cardSectionPast = document.querySelector('.card-grid-past')
 const totalSpent = document.querySelector('.total-spent')
 const destinationDropdown = document.querySelector('#destination')
 const tripCost = document.querySelector('#quote')
 const dateInput = document.querySelector('.departure-date')
-const destinationInput = document.querySelector('.destination')
 const durationInput = document.querySelector('.duration')
 const travelersInput = document.querySelector('.total-travelers')
-const requiredDate = document.querySelector('.date-input-field-required')
 const loginError = document.querySelector('.login-error')
 const postSubmitted = document.querySelector('#submit-post')
 
@@ -61,20 +57,20 @@ let domUpdates = {
   },
 
   updateTotalSpent(currentTraveler) {
-    if (currentTraveler.getTotalSpentThisYear() > 500) {
+    if (currentTraveler.getTotalAnnualSpend() > 500) {
       totalSpent.innerText = `This year's total travel investment:
-      $${currentTraveler.getTotalSpentThisYear()} (including agent fee of 10%)
+      $${currentTraveler.getTotalAnnualSpend()} (including agent fee of 10%)
 
       Congrats ~ you're busy creating a lifetime of memories.`
     } else {
       totalSpent.innerText = `This year's total travel investment:
-      $${currentTraveler.getTotalSpentThisYear()} (including agent fee of 10%)
+      $${currentTraveler.getTotalAnnualSpend()} (including agent fee of 10%)
 
       It appears you need to book more travel.`
     }
-    if (currentTraveler.getTotalSpentThisYear() === 0) {
+    if (currentTraveler.getTotalAnnualSpend() === 0) {
       totalSpent.innerText = `This year's total travel investment:
-      $${currentTraveler.getTotalSpentThisYear()}
+      $${currentTraveler.getTotalAnnualSpend()}
 
       You are in serious need of a vacation.
       Book the trip.`
