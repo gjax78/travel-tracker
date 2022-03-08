@@ -10,7 +10,7 @@ class Traveler {
     this.trips = []
   }
 
-  travelerAllTrips(trips) {
+  getAllTravelerTrips(trips) {
     trips.forEach(trip => {
       if (trip.userID === this.id) {
         this.trips.push(new Trip(trip))

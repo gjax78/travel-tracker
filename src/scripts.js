@@ -80,7 +80,7 @@ const generateNewTraveler = (travelerRawData) => {
 }
 
 const generateTravelerTrips = (tripRawData) => {
-  currentTraveler.travelerAllTrips(tripRawData.trips)
+  currentTraveler.getAllTravelerTrips(tripRawData.trips)
 }
 
 const generateTripDestinations = (destinationRawData) => {
