@@ -23,7 +23,7 @@ let domUpdates = {
     cardSection.innerHTML = ' '
 
     trips.sort((a, b) => {
-      return new Date(b.date) - new Date(a.date)
+      return new Date(a.date) - new Date(b.date)
     })
     trips.forEach(trip => {
       if ((trip.date.includes('2022')) || (trip.date.includes('2023')) || (trip.date.includes('2024'))) {
@@ -86,7 +86,7 @@ let domUpdates = {
 
   updateTripQuote(costEstimate) {
    // tripCost.classList.remove('hidden')
-   postSubmitted.innerHTML = `Estimated Cost: $${costEstimate} (including 10% agent fee)`
+   totalSpent.innerHTML = `Estimated Cost: $${costEstimate} (including 10% agent fee)`
  },
 
   clearForm() {
