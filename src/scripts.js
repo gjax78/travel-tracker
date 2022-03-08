@@ -48,10 +48,10 @@ const hideLoginPage = () => {
 }
 
 // //after hitting submit Button, I want to hide the Total spend p tag
-const hideTotalSpend = () => {
-  hide(totalSpent)
-  show(domUpdates.submitPost())
-}
+// const hideTotalSpend = () => {
+//   hide(totalSpent)
+//   show(domUpdates.submitPost())
+// }
 
 const findUserID = (event) => {
   if (username.value && password.value) {
