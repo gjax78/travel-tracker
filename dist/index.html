@@ -8,8 +8,6 @@
 <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900|Source+Sans+Pro" rel="stylesheet">
 </head>
 <body>
-
-  <!-- <h1>TRAVEL TRACKER</h1> -->
   <section class="login" id="login">
     <img src="https://user-images.githubusercontent.com/88151743/157051319-18a97d3d-c0c6-427d-a451-6c6c72f39836.jpg" alt="palm-tree-leaves">
     <div class="login-box">
@@ -25,13 +23,17 @@
         <button class="login-button" id="loginBtn">Let's go</button>
       </form>
     </div>
+    <div class="help">
+      <div class="question">?</div>
+      <div class="popup">
+        <h3>Having trouble logging in?</h3>
+        <p>Please contact your system administrator at 1-800-855-5555.</p><br><br>
+      </div>
+    </div>
   </section>
-
 <div class="wrapper">
 <main class="main-page hidden">
   <header class="header">
-    <!-- <h1>Travel Tracker</h1> -->
-    <!-- <img class="header-image" src="https://user-images.githubusercontent.com/88151743/157051319-18a97d3d-c0c6-427d-a451-6c6c72f39836.jpg" alt="palm-tree-leaves"> -->
     <h2 class="welcome-text">Welcome, Traveler</h2>
   </header>
   <div class="wrapper-main">
@@ -51,6 +53,7 @@
           <button name="button" class="quote-button" id="quote-button">Get Travel Quote</button>
             <p class="hidden" id="quote"></p>
           <button name="button" class="submit-button" id="submit-button">Submit Travel Request</button>
+            <p class="submit-post" id="submit-post"></p>
           <aside class="travel-total" id="travel-total">
             <h5 class="total-spent">Total Travel Spend</h5>
           </aside>
@@ -58,33 +61,22 @@
       </aside>
     </section>
     <div id="trips-container">
-      <!-- <section id="trips-button-container">
-        <button name="button" class="all-travel-button" id="all-travel-button">All Travel</button>
-        <button name="button" class="past-travel-button" id="past-travel-button">Past Travel</button>
-        <button name="button" class="present-travel-button" id="present-travel-button">Present Travel</button>
-        <button name="button" class="upcoming-travel-button" id="upcoming-travel-button">Upcoming Travel</button>
-        <button name="button" class="pending-travel-button" id="pending-travel-button">Pending Travel</button>
-      </section> -->
       <section class="all-trips">
-        <h3>Your Trips:</h3>
-        <section class="card-grid">
-          <!-- <article class="card">
-            <h3 class="card-destination"></h3>
-            <img class="card-image" src="source" alt="alt-text">
-            <p class="card-travelers"></p>
-            <p class="card-date"></p>
-            <p class="card-duration"></p>
-            <p class="card-lodging"></p>
-            <p class="card-flights"></p>
-            <p class="card-status"></p>
-          </article> -->
+        <section class="upcoming-trips">
+          <h3>Your Upcoming Trips:</h3>
+          <section class="card-grid-upcoming">
+          </section>
+        </section>
+        <section class="past-trips">
+          <h3>Your Past Trips:</h3>
+          <section class="card-grid-past">
+          </section>
         </section>
       </section>
     </div>
   </div>
   </main>
 </div>
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 </body>
 </html>

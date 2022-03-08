@@ -66,16 +66,16 @@ describe('Traveler', () => {
   })
 
   it ('should return all trips for one traveler', () => {
-    traveler1.travelerAllTrips(tripsData)
+    traveler1.getAllTravelerTrips(tripsData)
     expect(traveler1.trips).to.have.lengthOf(3)
-    traveler2.travelerAllTrips(tripsData)
+    traveler2.getAllTravelerTrips(tripsData)
     expect(traveler4.trips).to.have.lengthOf(0)
-    traveler3.travelerAllTrips(tripsData)
+    traveler3.getAllTravelerTrips(tripsData)
     expect(traveler3.trips).to.have.lengthOf(0)
   })
 
   it ('should add a destinations property to their trip', () => {
-    traveler1.travelerAllTrips(tripsData)
+    traveler1.getAllTravelerTrips(tripsData)
     traveler1.getDestinations(destinationData)
 
     expect(traveler1.trips[0]).to.deep.equal({
@@ -93,7 +93,7 @@ describe('Traveler', () => {
 
   it ('should get this years approved trips', () => {
     traveler1.getThisYearsApprovedTrips()
-    traveler1.travelerAllTrips(tripsData)
+    traveler1.getAllTravelerTrips(tripsData)
     expect(traveler1.getThisYearsApprovedTrips()).to.deep.equal([{
       date: "2022/09/16",
       destination: {},
@@ -121,7 +121,7 @@ describe('Traveler', () => {
 
   it ('should return total amount spent this year', () => {
     traveler2.getThisYearsApprovedTrips()
-    traveler2.travelerAllTrips(tripsData)
-    expect(traveler2.totalSpentThisYear(traveler2)).to.deep.equal(0)
+    traveler2.getAllTravelerTrips(tripsData)
+    expect(traveler2.getTotalSpentThisYear(traveler2)).to.deep.equal(0)
   })
 });

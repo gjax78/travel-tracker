@@ -14,15 +14,13 @@ html, body {
 
 button:hover {
   opacity: 0.8;
+  cursor: pointer;
 }
 
 p {
   margin: 2px;
   text-align: center;
 }
-/* .wrapper {
-  height: 100%;
-} */
 
 /* -------------------- LOGIN PAGE ------------------- */
 
@@ -49,20 +47,13 @@ img {
   border-radius: 10px;
   filter: blur(0.4px);
     box-shadow:
-    /*bottom shadow*/
     0px 20px 20px rgba(0,0,0,0.2),
     0px 5px 10px rgba(0,0,0,0.2),
-    /*long bottom shadow*/
     0px 70px 50px rgba(0,0,0,0.4),
-    /*right shadow*/
     30px 50px 50px rgba(0,0,0,0.2),
-    /*left shadow*/
     -30px 50px 50px rgba(0,0,0,0.2),
-    /*right inset*/
     inset 20px 0px 60px rgba(0,0,0,0.1),
-    /*left inset*/
     inset -20px 0px 60px rgba(0,0,0,0.1);
-
 }
 
 .login-details {
@@ -94,14 +85,104 @@ img {
   Font-Size: 13px;
 }
 
+.help {
+  width: 40px;
+  margin: 0 auto;
+  position: absolute;
+  float: right;
+  right: 0px; bottom: 0px;
+  padding-right: 10%;
+  padding-bottom: 5%;
+}
+
+.help .question {
+  height: 40px;
+  width: 40px;
+  background: #c2a500;
+  font-size: 32px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.help .popup, .help .popup2 {
+  width: 300px;
+  height: 0px;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  background: white;
+  opacity: 0;
+  transition: 1s;
+  Font-Family: 'Source Sans Pro', Sans-Serif;
+  Font-Size: 17px;
+}
+
+.help .popup {
+  left: -260px;
+  top: 10px;
+}
+
+.help .popup2 h4 {
+  font-size: 18px;
+  padding: 10px;
+  margin: 0;
+}
+
+.help:hover .popup {
+  opacity: 1;
+  height: 100px;
+}
+
+.help .tell-me {
+  color: #c2a500;
+  cursor: pointer;
+}
+
+.tell-me {
+  width: 150px;
+}
+
+.help .tell-me:hover .popup2 {
+  top: -220px;
+  opacity: 1;
+}
+
+.help .popup h3 {
+  margin: 0;
+  padding: 10px 0 0 10px;
+  height: 30px;
+  background: black;
+  color: #c2a500;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.help .popup p {
+  font-size: 16px;
+  padding: 10px;
+  margin: 0;
+}
+
+.help .popup .popup2 .sub-levels {
+  padding: 0 0 10px 140px;
+}
+
+.help .popup .popup2 .sub-levels strong {
+  font-size: 20px;
+}
+
+.help .popup .popup2 p:nth-child(5) {
+  padding: 20px 0 0 10px;
+}
+
 /* -------------------- TOP NAVIGATION/WELCOME MESSAGE ------------------- */
 
 header {
   display: flex;
   flex-direction: row;
   text-align: left;
-  /* padding-left: 2%; */
-  /* background: url(https://user-images.githubusercontent.com/88151743/157051319-18a97d3d-c0c6-427d-a451-6c6c72f39836.jpg) */
   color: #c2a500;
   height: 20%;
   width: 100%;
@@ -109,10 +190,6 @@ header {
   Font-Size: 20px;
   height: 115px;
 }
-/*
-.header-image {
-  position: absolute;
-} */
 
 .welcome-text {
   width: 100%;
@@ -124,10 +201,8 @@ header {
   Font-Size: 38px;
   background: url(https://user-images.githubusercontent.com/88151743/157051319-18a97d3d-c0c6-427d-a451-6c6c72f39836.jpg);
   background-size: cover;
-  /* height: 20%; */
   margin: 0px;
 }
-
 
 /* -------------------- MAIN PAGE/OVERALL ------------------- */
 
@@ -135,7 +210,6 @@ header {
   display: flex;
   flex-direction: row;
   height: 85vh;
-  /* width: 100%; */
 }
 
 /* -------------------- LEFT SIDE / FORM ------------------- */
@@ -155,7 +229,6 @@ h4 {
 }
 
 .left-side {
-  /* display: flex; */
   padding-left: 10px;
   width: 200%;
   Font-Family: 'Source Sans Pro', Sans-Serif;
@@ -163,12 +236,8 @@ h4 {
   color: #c2a500;
   background: white;
   padding-top: 1%;
-  /* width: 900px; */
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* justify-content: center; */
-  /* height: 100%;
-  width: 25%; */
+  padding-left: 70px;
+  padding-right: 30px;
 }
 
 .book-trip {
@@ -177,39 +246,27 @@ h4 {
 }
 
 .travel-form {
-  width: 70%;
+  width: 100%;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  /* float: left; */
   grid-gap: 15px;
-  /* width: 100%; */
-  /* padding: 7% 0; */
-  /* border:1px solid black; */
   margin-left: 10%;
   border-radius: 5px;
   background: black;
   padding: 15px;
   align-items: center;
-
   filter: blur(0.4px);
     box-shadow:
-    /*bottom shadow*/
     0px 20px 20px rgba(0,0,0,0.2),
     0px 5px 10px rgba(0,0,0,0.2),
-    /*long bottom shadow*/
     0px 70px 50px rgba(0,0,0,0.4),
-    /*right shadow*/
     30px 50px 50px rgba(0,0,0,0.2),
-    /*left shadow*/
     -30px 50px 50px rgba(0,0,0,0.2),
-    /*right inset*/
     inset 20px 0px 60px rgba(0,0,0,0.1),
-    /*left inset*/
     inset -20px 0px 60px rgba(0,0,0,0.1);
-
 }
 
 .travel-total {
@@ -217,19 +274,24 @@ h4 {
   flex-direction: column;
   float: left;
   font-size: 20px;
+  text-align: center;
 }
 
-.departure-date, .duration, .total-travelers, .destination {
+.departure-date,
+.duration,
+.total-travelers,
+.destination {
   Font-Family: 'Source Sans Pro', Sans-Serif;
   width: 75%;
+    cursor: pointer;
 }
 
-.quote-button, .submit-button {
+.quote-button,
+.submit-button {
   Font-Family: 'Source Sans Pro', Sans-Serif;
   Font-Size: 15px;
   width: 60%;
 }
-
 
 /* -------------------- CARD GRID ------------------- */
 
@@ -239,70 +301,46 @@ h4 {
   justify-content: center;
   height: 100%;
   width: 50%;
-  /* padding-left: 30%; */
 }
 
 .all-trips {
   display: flex;
   flex-direction: column;
-  /* float: left; */
-  /* grid-gap: 15px; */
-  /* width: 69.7%; */
-  /* height: 563px; */
-  /* padding: 3% 0; */
   height: 77.8vh;
   padding-top: 1%;
   overflow-y: scroll;
 }
 
-
-.card-grid {
+.card-grid-upcoming, .card-grid-past {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 3%;
   grid-row-gap: 7%;
-  /* border: 1px solid red; */
-  /* height: 100%; */
   padding-left: 70px;
   padding-right: 70px;
-  padding-bottom: 170px;
+  padding-bottom: 50px;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* height: 40%; */
   width: 88%;
-  /* border: 2px solid; */
   border-radius: 5px;
-  /* margin-bottom: 5px; */
   font-size: 15px;
   background: black;
   color: #c2a500;
-
+  flex-shrink: 1;
   filter: blur(0.4px);
     box-shadow:
-    /*bottom shadow*/
     0px 20px 20px rgba(0,0,0,0.2),
     0px 5px 10px rgba(0,0,0,0.2),
-    /*long bottom shadow*/
     0px 70px 50px rgba(0,0,0,0.4),
-    /*right shadow*/
     30px 50px 50px rgba(0,0,0,0.2),
-    /*left shadow*/
     -30px 50px 50px rgba(0,0,0,0.2),
-    /*right inset*/
     inset 20px 0px 60px rgba(0,0,0,0.1),
-    /*left inset*/
     inset -20px 0px 60px rgba(0,0,0,0.1);
-
 }
-
-/* .card-travelers {
-  Font-Family: 'Source Sans Pro', Sans-Serif;
-  font-size: 5px;
-} */
 
 .card-destination {
   margin: 15px;
