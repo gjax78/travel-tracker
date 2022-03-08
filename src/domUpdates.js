@@ -13,7 +13,6 @@ const travelersInput = document.querySelector('.total-travelers')
 const requiredDate = document.querySelector('.date-input-field-required')
 const loginError = document.querySelector('.login-error')
 const postSubmitted = document.querySelector('#submit-post')
-const hiddenMessage = document.querySelector('.hidden-message')
 
 
 let domUpdates = {
@@ -108,13 +107,6 @@ let domUpdates = {
     }
   },
 
-  // updateHiddenMessage() {
-  //   if (cardSectionUpcoming.innerHTML.length === 0) {
-  //     hiddenMessage.innerText = `You are in serious need of a vacation.
-  //     Book the trip.`
-  //   }
-  // },
-
   updateDestinationsDropDown(destination) {
     const newElement = document.createElement('option')
     newElement.innerText = destination.destination
@@ -123,7 +115,6 @@ let domUpdates = {
   },
 
   updateTripQuote(costEstimate) {
-   // tripCost.classList.remove('hidden')
    totalSpent.innerHTML = `Estimated Cost: $${costEstimate} (including 10% agent fee)`
  },
 
