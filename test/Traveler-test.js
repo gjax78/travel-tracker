@@ -92,9 +92,9 @@ describe('Traveler', () => {
   })
 
   it ('should get this years approved trips', () => {
-    traveler1.getThisYearsApprovedTrips()
+    traveler1.getAnnualApprovedTrips()
     traveler1.getAllTravelerTrips(tripsData)
-    expect(traveler1.getThisYearsApprovedTrips()).to.deep.equal([{
+    expect(traveler1.getAnnualApprovedTrips()).to.deep.equal([{
       date: "2022/09/16",
       destination: {},
       destinationId: 49,
@@ -120,8 +120,8 @@ describe('Traveler', () => {
   })
 
   it ('should return total amount spent this year', () => {
-    traveler2.getThisYearsApprovedTrips()
+    traveler2.getAnnualApprovedTrips()
     traveler2.getAllTravelerTrips(tripsData)
-    expect(traveler2.getTotalSpentThisYear(traveler2)).to.deep.equal(0)
+    expect(traveler2.getTotalAnnualSpend(traveler2)).to.deep.equal(0)
   })
 });
