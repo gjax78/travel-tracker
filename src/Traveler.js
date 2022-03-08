@@ -1,7 +1,6 @@
 import Trip from './Trip';
 import Destination from './Destination';
 
-
 class Traveler {
   constructor(travelerRawData) {
     this.id = travelerRawData.id
@@ -26,7 +25,7 @@ class Traveler {
     })
   }
 
-  getThisYearsApprovedTrips() {
+  getAnnualApprovedTrips() {
     const today = Date.now()
     const currentYear = new Date(today).getFullYear()
     return this.trips.filter(trip => {
@@ -34,16 +33,16 @@ class Traveler {
     })
   }
 
-  getTotalSpentThisYear() {
-    let eachTripSpend = 0
-    let totalYearSpend = 0
-    const tripsThisYear = this.getThisYearsApprovedTrips()
+  getTotalAnnualSpend() {
+    let singleTripSpend = 0
+    let totalAnnualSpend = 0
+    const tripsThisYear = this.getAnnualApprovedTrips()
     tripsThisYear.forEach(trip => {
-      eachTripSpend += trip.duration * trip.destination.lodging
-      eachTripSpend += trip.travelers * (trip.destination.flights * 2)
+      singleTripSpend += trip.duration * trip.destination.lodging
+      singleTripSpend += trip.travelers * (trip.destination.flights * 2)
     })
-    totalYearSpend = eachTripSpend + (eachTripSpend * .10)
-    return totalYearSpend
+    totalAnnualSpend = singleTripSpend + (singleTripSpend * .10)
+    return totalAnnualSpend
   }
 }
 
