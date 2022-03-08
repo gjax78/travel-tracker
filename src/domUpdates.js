@@ -2,7 +2,7 @@ const welcomeMessage = document.querySelector('.welcome-text')
 const displayTrips = document.querySelector('.trips')
 const cardImage = document.querySelector('.card-image')
 const cardSectionUpcoming = document.querySelector('.card-grid-upcoming')
-const cardSectionPending = document.querySelector('.card-grid-past')
+const cardSectionPast = document.querySelector('.card-grid-past')
 const totalSpent = document.querySelector('.total-spent')
 const destinationDropdown = document.querySelector('#destination')
 const tripCost = document.querySelector('#quote')
@@ -21,7 +21,7 @@ let domUpdates = {
   },
 
   updateTrips(trips) {
-    cardSectionPending.innerHTML = ' '
+    cardSectionPast.innerHTML = ' '
     cardSectionUpcoming.innerHTML = ' '
 
     trips.sort((a, b) => {
@@ -42,7 +42,7 @@ let domUpdates = {
       </article>
       `
     } else {
-      cardSectionPending.innerHTML +=
+      cardSectionPast.innerHTML +=
       `
       <article class="card">
         <h4 class="card-destination">${trip.destination.name}</h4>
@@ -55,34 +55,6 @@ let domUpdates = {
       </article>
       `
       }
-
-    //   else if ((trip.date.includes('2022')) || (trip.date.includes('2023')) || (trip.date.includes('2024')) && (trip.status === 'approved')) {
-    //   cardSectionUpcoming.innerHTML +=
-    //   `
-    //   <article class="card">
-    //     <h4 class="card-destination">${trip.destination.name}</h4>
-    //     <p class="card-status">Your trip is currently ${trip.status}.</p>
-    //     <img class="card-image" src="${trip.destination.image}" alt="alt-text">
-    //     <p class="card-date">Departure date requested: ${trip.date}</p>
-    //     <p class="card-duration">Number of nights requested: ${trip.duration}</p>
-    //     <p class="card-lodging">Nightly cost: $${trip.destination.lodging}</p>
-    //     <p class="card-flights">Estimated flight cost per person: $${trip.destination.flights}</p>
-    //   </article>
-    //   `
-    // } else {
-    //   cardSectionUpcoming.innerHTML +=
-    //   `
-    //   <article class="card">
-    //     <h4 class="card-destination">${trip.destination.name}</h4>
-    //     <p class="card-status">This trip has passed.</p>
-    //     <img class="card-image" src="${trip.destination.image}" alt="alt-text">
-    //     <p class="card-date">Departure date: ${trip.date}</p>
-    //     <p class="card-duration">Number of nights: ${trip.duration}</p>
-    //     <p class="card-lodging">Nightly cost was: $${trip.destination.lodging}</p>
-    //     <p class="card-flights">Your flight cost per person was: $${trip.destination.flights}</p>
-    //   </article>
-    //   `
-    //   }
     })
   },
 

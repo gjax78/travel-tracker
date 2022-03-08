@@ -31,8 +31,6 @@ let travelers;
 let currentUserID;
 
 //-----------------------functions ---------------//
-
-
 const hide = (section) => {
   section.classList.toggle('hidden')
 }
@@ -47,12 +45,6 @@ const hideLoginPage = () => {
   renderPage()
 }
 
-// //after hitting submit Button, I want to hide the Total spend p tag
-// const hideTotalSpend = () => {
-//   hide(totalSpent)
-//   show(domUpdates.submitPost())
-// }
-
 const findUserID = (event) => {
   if (username.value && password.value) {
     event.preventDefault()
@@ -63,7 +55,6 @@ const findUserID = (event) => {
 
 const verifyUser = () => {
   let userLogin = username.value.slice(0, 8)
-  console.log(userLogin)
 
   if ((userLogin === 'traveler') && (0 < currentUserID && currentUserID < 51) && (password.value === 'traveler')) {
     hideLoginPage(currentUserID)
